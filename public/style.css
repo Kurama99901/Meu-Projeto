@@ -1,0 +1,200 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff7e;
+    overflow-x: hidden; /* Impede o overflow horizontal */
+    min-height: 100vh; /* Garante que a altura mínima da página seja 100% da altura da janela */
+}
+
+/* Cabeçalho */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Logo1 à esquerda e Logo2 à direita */
+    align-items: center; /* Alinha verticalmente os itens */
+    padding: 10px 20px;
+    background-color: #fff; /* Fundo claro */
+    width: 100%;
+    position: relative;
+}
+
+.cabeçalho {
+    display: flex;
+    justify-content: space-between; /* Logo1 à esquerda e Logo2 à direita */
+    align-items: center; /* Alinha verticalmente os itens */
+    padding: 10px 20px;
+    background-color: #fff; /* Fundo claro */
+    width: 100%;
+    position: relative;
+}
+
+/* Logo1 - Fixa à esquerda */
+.logo1 {
+    max-height: 70px; /* Limita a altura da logo1 */
+    flex-shrink: 0; /* Impede que a logo encolha */
+}
+
+/* Logo2 - Fixa à direita */
+.logo2 {
+    max-height: 70px; /* Limita a altura da logo2 */
+    margin-left: auto; /* Isso empurra a logo2 para a direita */
+    flex-shrink: 0; /* Impede que a logo encolha */
+}
+
+/* Navegação (nav) - Fica centralizada no espaço restante */
+nav {
+    display: flex;
+    justify-content: center; /* Alinha os itens de navegação ao centro */
+    list-style: none; /* Remove os marcadores */
+    gap: 20px; /* Espaço entre os itens da navegação */
+    flex-grow: 1; /* Faz a navegação crescer para preencher o espaço restante */
+}
+
+/* Estilo dos links na navegação */
+nav a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease; /* Transição suave */
+}
+
+nav a:hover {
+    background-color: rgba(163, 161, 161, 0.062); /* Efeito hover */
+    border-radius: 5px;
+    color: #bb0e0ed7;
+}
+
+/* Barra Superior */
+.barra_topo {
+    position: absolute; /* Fixa a barra no topo */
+    top: 115px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #333; /* Cor da barra */
+}
+
+/* Main */
+main {
+    flex-grow: 1; /* Faz o conteúdo principal expandir para empurrar o footer para o fim da página */
+}
+
+/* Rodapé */
+footer {
+    position: fixed;  /* Fixo no fundo da tela */
+    bottom: 0; /* Fixa o footer na parte inferior */
+    display: flex;
+    justify-content: center;  /* Centraliza o texto no footer */
+    align-items: center;  /* Alinha verticalmente */
+    width: 100%;  /* Largura total */
+    background-color: transparent;  /* Sem cor de fundo no footer */
+    padding: 20px 0; /* Ajusta o padding para garantir espaçamento adequado */
+    height: 126px;  /* Mantém a altura do footer conforme estava */
+}
+
+/* Texto do Footer */
+.text-f {
+    color: #ffffff;
+    font-size: small;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    z-index: 2; /* Garante que o texto do footer fique sobre o fundo */
+    margin-top: 150px;  /* Ajustado para mover o texto mais para baixo */
+}
+
+/* Fundo do Footer */
+.fundo_footer {
+    position: absolute;
+    bottom: 0;  /* Coloca o fundo na parte inferior do footer */
+    width: 100%;
+    height: 15px;  /* Ajuste a altura do fundo */
+    background-color: #333;  /* Cor do fundo */
+    z-index: 1; /* Coloca o fundo abaixo do texto */
+}
+
+/* Responsividade */
+
+/* Para telas menores que 768px */
+@media screen and (max-width: 768px) {
+    .cabeçalho {
+        flex-direction: column;  /* Organiza os itens na vertical */
+        text-align: center;
+        padding: 10px;
+    }
+
+    nav {
+        flex-direction: column; /* Empilha os links da navegação */
+        gap: 10px; /* Menos espaço entre os itens */
+        margin-left: 0; /* Remove o margin-left */
+        margin-right: 0; /* Remove o margin-right */
+        position: relative; /* Deixa a navegação se mover naturalmente */
+        justify-content: center; /* Alinha os itens ao centro */
+    }
+
+    nav a {
+        font-size: 16px;  /* Menor tamanho de fonte */
+        padding: 8px 15px;  /* Ajuste de padding */
+    }
+
+    .logo1, .logo2 {
+        max-height: 50px;  /* Ajusta o tamanho das logos */
+    }
+
+    .barra_topo {
+        top: 100px; /* Ajuste de posição da barra */
+    }
+
+    footer {
+        padding: 10px 20px; /* Mais espaçamento no footer em telas menores */
+    }
+
+    .text-f {
+        font-size: 14px;  /* Reduz o tamanho do texto */
+        margin-top: 150px; /* Ajuste no texto para não colidir com o fundo */
+    }
+
+    .fundo_footer {
+        height: 12px;  /* Menor altura do fundo em telas menores */
+    }
+}
+
+/* Para telas menores que 480px (smartphones) */
+@media screen and (max-width: 480px) {
+    .cabeçalho {
+        padding: 5px 10px;  /* Menos padding */
+    }
+
+    nav {
+        flex-direction: column;  /* Continua empilhando os links */
+        gap: 8px;
+        margin-top: 10px;
+    }
+
+    nav a {
+        font-size: 14px;  /* Reduz o tamanho da fonte */
+        padding: 6px 12px;  /* Ajuste de padding */
+    }
+
+    .logo1, .logo2 {
+        max-height: 40px;  /* Menor tamanho das logos */
+    }
+
+    .barra_topo {
+        top: 80px; /* Ajusta a posição da barra */
+    }
+
+    footer {
+        padding: 10px 15px; /* Ajuste no padding para telas menores */
+    }
+
+    .text-f {
+        font-size: 12px;  /* Menor tamanho do texto */
+        margin-top: 150px; /* Ajuste no margin-top para telas pequenas */
+    }
+
+    .fundo_footer {
+        height: 10px;  /* Menor altura do fundo em smartphones */
+    }
+}

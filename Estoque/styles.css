@@ -1,0 +1,358 @@
+/* Definições gerais */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; /* Fundo mais claro para melhorar a legibilidade */
+    margin: 0;
+    padding: 0;
+}
+
+/* Container centralizado */
+.container {
+    max-width: 1200px; /* Largura máxima da página */
+    margin: 60px auto; /* Centraliza o conteúdo */
+    padding: 40px;
+    background: white;
+    box-shadow: 0 12px 60px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border-radius: 16px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 0.6s forwards; /* Animação de fade-in */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Cabeçalho */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+/* Tabela de estoque */
+#estoque {
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    background-color: #fff; /* Fundo branco */
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilos das colunas */
+th {
+    background-color: #f8f8f8; /* Fundo claro */
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #e0f7fa; /* Azul suave */
+}
+
+td {
+    background-color: #fff;
+}
+
+footer {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Estilo do botão de voltar */
+.botao-voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    transition: transform 0.3s;
+    font-size: 32px; /* Aumentando o tamanho do ícone */
+}
+
+.botao-voltar svg {
+    fill: #111010c2; /* Cor original do ícone */
+    width: 32px; /* Ajuste do tamanho do ícone */
+    height: 32px; /* Ajuste do tamanho do ícone */
+}
+
+.botao-voltar:hover svg {
+    fill: #ff0000cc; /* Cor do ícone ao passar o mouse */
+}
+
+/* Estilos da barra de pesquisa */
+.search-input {
+    width: 100%;
+    max-width: 350px;
+    padding: 10px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.356); /* Fundo escuro semi-transparente */
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Estilo do conteúdo do modal */
+.modal-conteudo {
+    background-color: #fff;
+    margin: auto;
+    padding: 30px;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    animation: modalEntrada 0.4s ease-out;
+    position: relative; /* Necessário para o posicionamento absoluto do botão de fechar */
+    max-width: 90%;  /* Tornar o conteúdo mais responsivo em telas menores */
+   top: 13px;/* Distância do topo */
+}
+/* CSS para desabilitar a rolagem da página */
+body.modal-aberta {
+    overflow: hidden;
+}
+
+/* Estilo do botão de fechar modal */
+.fechar {
+    color: #000000;
+    font-size: 40px; /* Tamanho maior do ícone de fechar */
+    font-weight: bold;
+    position: absolute; /* Para posicionar dentro do conteúdo do modal */
+    top: 10px;  /* Distância do topo */
+    right: 10px; /* Distância da direita */
+    cursor: pointer;
+}
+
+.fechar:hover {
+    color: #ff0000; /* Cor do ícone ao passar o mouse */
+}
+
+/* Animação de entrada do modal */
+@keyframes modalEntrada {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+
+/* Botões */
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+input, select {
+    padding: 10px;
+    margin: 8px 0;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilos de foco */
+input:focus, select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Estilo para campo numérico */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Rótulos de inputs */
+label {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+/* Estilos para a caixa de sugestões */
+#search {
+    position: relative; /* Torna a caixa de pesquisa o contêiner para a posição absoluta da sugestão */
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#search:focus {
+    border-color: #4CAF50;
+}
+
+/* Sugestões de pesquisa */
+#suggestions {
+    position: absolute;
+    top: calc(100% + 2px); /* Agora a sugestão vai aparecer 2px abaixo da caixa de pesquisa */
+    left: 25%; /* Alinha as sugestões com a caixa de pesquisa */
+    width: 50%; /* Faz a sugestão ocupar toda a largura da caixa de pesquisa */
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: none;
+}
+
+.suggestion-item {
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.suggestion-item:hover {
+    background-color: #f1f1f1;
+}
+
+.suggestion-item.selected {
+    background-color: #e0e0e0; /* Cor do item selecionado */
+}
+
+/* Responsividade e Acessibilidade */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .search-input {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    #suggestions {
+        width: 100%;
+        left: 0;
+    }
+
+    .botao-voltar svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Modificando a posição do botão de voltar */
+    .botao-voltar {
+        top: 10px;
+        left: 10px;
+    }
+
+    /* Modal e botões também se adaptam */
+    .modal-conteudo {
+        width: 90%;
+        padding: 20px;
+    }
+
+    button {
+        width: 100%;
+        font-size: 18px;
+        padding: 15px;
+    }
+}
+
+/* Para telas menores que 480px (ex: smartphones verticais) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    table {
+        font-size: 0.8rem;
+    }
+
+    .search-input {
+        max-width: 100%;
+    }
+
+    /* Aumentando a área clicável do botão de fechar no modal */
+    .fechar {
+        font-size: 32px;
+        top: 5px;
+        right: 5px;
+    }
+
+    .modal-conteudo {
+        width: 95%;
+        padding: 15px;
+    }
+
+    button {
+        padding: 15px;
+    }
+}
+
+
+

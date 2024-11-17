@@ -1,0 +1,1432 @@
+{
+  "estoque": [
+    {
+      "codSistema": "001000",
+      "produto": "OLEO DESENGRIPANTE",
+      "estoqueInicial": "18",
+      "entradas": "",
+      "saidas": "",
+      "estoqueFinal": "18",
+      "codigoNovo": "021735",
+      "local": ""
+    },
+    {
+      "codSistema": "000938",
+      "produto": "CAR 80",
+      "estoqueInicial": "1",
+      "entradas": "",
+      "saidas": "",
+      "estoqueFinal": "1",
+      "codigoNovo": "",
+      "local": ""
+    },
+    {
+      "codSistema": "001686",
+      "produto": "LIMPA CONTATO",
+      "estoqueInicial": "38",
+      "entradas": "",
+      "saidas": "",
+      "estoqueFinal": "38",
+      "codigoNovo": "",
+      "local": ""
+    },
+    {
+      "codSistema": "001690",
+      "produto": "SILICONE SPRAY",
+      "estoqueInicial": "12",
+      "entradas": "",
+      "saidas": "",
+      "estoqueFinal": "12",
+      "codigoNovo": "",
+      "local": ""
+    },
+    {
+      "codSistema": "001688",
+      "produto": "GRAXA CAVIDADE BRANCA",
+      "estoqueInicial": "21",
+      "entradas": "",
+      "saidas": "1",
+      "estoqueFinal": "20",
+      "codigoNovo": "021734",
+      "local": ""
+    },
+    {
+      "codSistema": "015443",
+      "produto": "TAMPA DISTRIBUIDOR TOYOTA 8FG GENUINA",
+      "estoqueInicial": "6",
+      "entradas": "",
+      "saidas": "",
+      "estoqueFinal": "6",
+      "codigoNovo": "",
+      "local": ""
+    },
+    {
+      "codSistema": "007752",
+      "produto": "BOMBA COMBUSTIVEL TOY. 8FG",
+      "estoqueInicial": "1",
+      "entradas": "1",
+      "saidas": "0",
+      "estoqueFinal": "2",
+      "codigoNovo": "",
+      "local": ""
+    },
+    {
+      "codSistema": "008267",
+      "produto": "CONJUNTO REGULADOR DE GAS TOYOTA (RODOGÁS)",
+      "estoqueInicial": "1",
+      "entradas": "0",
+      "saidas": "0",
+      "estoqueFinal": "1",
+      "codigoNovo": "",
+      "local": ""
+    },
+    {
+      "codSistema": "008319",
+      "produto": "MOTOR PARTIDA TOYOTA 8FG GENUINO",
+      "estoqueInicial": "5",
+      "entradas": "0",
+      "saidas": "1",
+      "estoqueFinal": "4",
+      "codigoNovo": "",
+      "local": ""
+    },
+    {
+      "codSistema": "000036",
+      "produto": "CABO VELA TOY. 7/8 FG",
+      "estoqueInicial": "9",
+      "entradas": "1",
+      "saidas": "0",
+      "estoqueFinal": "10",
+      "codigoNovo": "",
+      "local": ""
+    },
+    {
+      "codSistema": "020959",
+      "produto": "ALTERNADOR TOYOTA 8FG GENUINO MOTOR 4Y",
+      "estoqueInicial": "5",
+      "entradas": "0",
+      "saidas": "1",
+      "estoqueFinal": "4",
+      "codigoNovo": "000737",
+      "local": ""
+    },
+    {
+      "codSistema": "003291",
+      "produto": "FILTRO AR DUPLO TOYOTA 7/8FG",
+      "estoqueInicial": "7",
+      "entradas": "0",
+      "saidas": "1",
+      "estoqueFinal": "6",
+      "codigoNovo": "",
+      "local": ""
+    },
+    {
+      "codSistema": "011047",
+      "produto": "VARETA NIVEL OLEO HIDRAULICO TOYOTA 8FG 2.5",
+      "estoqueInicial": "2",
+      "entradas": "0",
+      "saidas": "0",
+      "estoqueFinal": "2",
+      "codigoNovo": "",
+      "local": ""
+    },
+      {
+              "codSistema": "017414",
+              "produto": "JUNTA TAMPA VALVULA TOY.4Y",
+              "estoqueInicial": "6",
+              "entradas": "0",
+              "saidas": "0",
+              "estoqueFinal": "6",
+              "codigoNovo": "",
+              "local": ""
+            },
+            {
+              "codSistema": "017357",
+              "produto": "BOMBA D'AGUA TOY. 7 / 8 FG 1.8 / 2.5",
+              "estoqueInicial": "2",
+              "entradas": "0",
+              "saidas": "0",
+              "estoqueFinal": "2",
+              "codigoNovo": "017357",
+              "local": ""
+            },
+            {
+              "codSistema": "014805",
+              "produto": "COMUTADOR DE PARTIDA TOY. 8FG GENUINO",
+              "estoqueInicial": "6",
+              "entradas": "0",
+              "saidas": "2",
+              "estoqueFinal": "4",
+              "codigoNovo": "",
+              "local": ""
+            },
+            {
+              "codSistema": "006323",
+              "produto": "FAROL BLUE SPOT LED 12 48V",
+              "estoqueInicial": "3",
+              "entradas": "0",
+              "saidas": "0",
+              "estoqueFinal": "3",
+              "codigoNovo": "",
+              "local": ""
+            },
+            {
+              "codSistema": "015856",
+              "produto": "IGNITOR BOBINA DISTRIBUIDOR TOY. 8FG",
+              "estoqueInicial": "5",
+              "entradas": "0",
+              "saidas": "3",
+              "estoqueFinal": "2",
+              "codigoNovo": "",
+              "local": ""
+            },
+            {
+              "codSistema": "000992",
+              "produto": "BUZINA ELETROMAGNETICA",
+              "estoqueInicial": "9",
+              "entradas": "0",
+              "saidas": "3",
+              "estoqueFinal": "6",
+              "codigoNovo": "",
+              "local": ""
+            },
+            {
+              "codSistema": "008993",
+              "produto": "SIRENE DE RE 48 VOLTS",
+              "estoqueInicial": "3",
+              "entradas": "0",
+              "saidas": "2",
+              "estoqueFinal": "1",
+              "codigoNovo": "",
+              "local": ""
+            },
+            {
+              "codSistema": "000169",
+              "produto": "VELA DE IGNICAO TOY. 7/8FG",
+              "estoqueInicial": "33",
+              "entradas": "0",
+              "saidas": "0",
+              "estoqueFinal": "33",
+              "codigoNovo": "",
+              "local": ""
+            },
+            {
+              "codSistema": "003778",
+              "produto": "FAROL DIANTEIRO  TOYOTA 8FG",
+              "estoqueInicial": "6",
+              "entradas": "0",
+              "saidas": "0",
+              "estoqueFinal": "6",
+              "codigoNovo": "",
+              "local": ""
+            },
+            {
+              "codSistema": "000690",
+              "produto": "LANTERNA TRASEIRA L.D TOY. 8 FG",
+              "estoqueInicial": "5",
+              "entradas": "0",
+              "saidas": "1",
+              "estoqueFinal": "4",
+              "codigoNovo": "",
+              "local": ""
+            },
+            {
+              "codSistema": "000691",
+              "produto": "LANTERNA TRASEIRA L.E TOY. 8 FG",
+              "estoqueInicial": "5",
+              "entradas": "0",
+              "saidas": "0",
+              "estoqueFinal": "5",
+              "codigoNovo": "",
+              "local": ""
+            },
+            {
+              "codSistema": "014596",
+              "produto": "OLEO MOTOR TOY. SUPER 1L",
+              "estoqueInicial": "58",
+              "entradas": "0",
+              "saidas": "5",
+              "estoqueFinal": "53",
+              "codigoNovo": "",
+              "local": ""
+            },
+            {
+              "codSistema": "014595",
+              "produto": "OLEO TRANS. TOY. SUPER ATF 1L",
+              "estoqueInicial": "73",
+              "entradas": "",
+              "saidas": "0"
+      },
+      {
+        
+            "codSistema": "014593",
+            "produto": "FLUIDO FREIO 500ML SUPER TOYOTA",
+            "estoqueInicial": "18",
+            "entradas": "0",
+            "saidas": "2",
+            "estoqueFinal": "16",
+            "codigoNovo": "",
+            "local": ""
+          },
+          {
+            "codSistema": "014597",
+            "produto": "OLEO HIDRAULICO TOY. SUPER TOYOTA 20l",
+            "estoqueInicial": "21",
+            "entradas": "0",
+            "saidas": "0",
+            "estoqueFinal": "21",
+            "codigoNovo": "",
+            "local": ""
+          },
+          {
+            "codSistema": "000011",
+            "produto": "FILTRO AR TOYOTA",
+            "estoqueInicial": "13",
+            "entradas": "7",
+            "saidas": "0",
+            "estoqueFinal": "20",
+            "codigoNovo": "",
+            "local": ""
+          },
+          {
+            "codSistema": "000019",
+            "produto": "FILTRO HIDRAULICO TOY. 8FG GENUINO",
+            "estoqueInicial": "16",
+            "entradas": "0",
+            "saidas": "5",
+            "estoqueFinal": "11",
+            "codigoNovo": "",
+            "local": ""
+          },
+          {
+            "codSistema": "000025",
+            "produto": "FILTRO MOTOR TOYOTA",
+            "estoqueInicial": "11",
+            "entradas": "9",
+            "saidas": "",
+            "estoqueFinal": "20",
+            "codigoNovo": "",
+            "local": ""
+          },
+          {
+            "codSistema": "000029",
+            "produto": "FILTRO TRANSMISSAO TOY.",
+            "estoqueInicial": "17",
+            "entradas": "6",
+            "saidas": "0",
+            "estoqueFinal": "23",
+            "codigoNovo": "",
+            "local": ""
+          },
+          {
+            "codSistema": "?",
+            "produto": "RedZone",
+            "estoqueInicial": "",
+            "entradas": "0",
+            "saidas": "",
+            "estoqueFinal": "10",
+            "codigoNovo": "",
+            "local": ""
+          },
+          {
+            "codSistema": "011001",
+            "produto": "ELEMENTO FILTRO DECANTACAO TOY. 8FG",
+            "estoqueInicial": "35",
+            "entradas": "0",
+            "saidas": "1",
+            "estoqueFinal": "34",
+            "codigoNovo": "",
+            "local": ""
+          },
+          {
+            "codSistema": "016133",
+            "produto": "JUNTA BUJAO CARTER TOYOTA 8FG GENUINO",
+            "estoqueInicial": "33",
+            "entradas": "0",
+            "saidas": "0",
+            "estoqueFinal": "33",
+            "codigoNovo": "",
+            "local": ""
+          },
+      {
+        "codSistema": "016926",
+        "produto": "ARRUELA BUJAO TRANSMISSAO TOY. 8FG GENUINA",
+        "estoqueInicial": "25",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "25",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "016478",
+        "produto": "OLEO DIFERENCIAL TOY. GENUINO",
+        "estoqueInicial": "91",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "91",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000033",
+        "produto": "PRE FILTRO HIDRAULICO. TOY ",
+        "estoqueInicial": "11",
+        "entradas": "0",
+        "saidas": "1",
+        "estoqueFinal": "10",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "014592",
+        "produto": "ADITIVO RADIADOR TOYOTA SUPER COOLANT 1L",
+        "estoqueInicial": "58",
+        "entradas": "0",
+        "saidas": "2",
+        "estoqueFinal": "56",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "015821",
+        "produto": "CORREIA ALTERNADOR TOYOTA 8FG GENUINA",
+        "estoqueInicial": "5",
+        "entradas": "3",
+        "saidas": "0",
+        "estoqueFinal": "8",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "014603",
+        "produto": "SENSOR EIXO TRASEIRO TOY. 8FG GENUINO",
+        "estoqueInicial": "3",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "3",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000720",
+        "produto": "FILTRO COMBUSTIVEL TOY. 8 FG+D65",
+        "estoqueInicial": "19",
+        "entradas": "0",
+        "saidas": "9",
+        "estoqueFinal": "10",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "015042",
+        "produto": "ROTOR DISTRIBUIDOR TOYOTA GENUINO",
+        "estoqueInicial": "8",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "8",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "001482",
+        "produto": "FILTRO OLEO MOTOR DIESEL TOY. 8FG",
+        "estoqueInicial": "5",
+        "entradas": "1",
+        "saidas": "0",
+        "estoqueFinal": "6",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "016124",
+        "produto": "RETROVISOR TOYOTA 8FG GENUINO",
+        "estoqueInicial": "10",
+        "entradas": "0",
+        "saidas": "4",
+        "estoqueFinal": "6",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "009480",
+        "produto": "ENGRENAGEM BENDIX MOTOR PARTIDA TOYOTA",
+        "estoqueInicial": "1",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "1",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000060",
+        "produto": "CILINDRO MESTRE TOYOTA 7/8 FG",
+        "estoqueInicial": "1",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "1",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "003125",
+        "produto": "DISTRIBUIDOR TOYOTA 7/8FG",
+        "estoqueInicial": "1",
+        "entradas": "1",
+        "saidas": "0",
+        "estoqueFinal": "2",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000350",
+        "produto": "PLACA DESLIZANTE DESLOC. LATERAL INFERIOR TOY.",
+        "estoqueInicial": "12",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "12",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000349",
+        "produto": "DESLIZ. SUP. DESLOC. LATERAL SUPERIOR TOY.",
+        "estoqueInicial": "7",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "7",
+        "codigoNovo": "018884"
+      },
+      {
+        "codSistema": "005494",
+        "produto": "CINTO SEGURANCA TOY. 8FG",
+        "estoqueInicial": "4",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "4",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "017411",
+        "produto": "FECHO DO CINTO DE SEGURANCA MODERNO (CURTO) 8FG",
+        "estoqueInicial": "4",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "4",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "001083",
+        "produto": "MOLA PEDAL EMBREAGEM 8 FG 2.5 TON",
+        "estoqueInicial": "3",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "3",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "019286",
+        "produto": "TAMPA RADIADOR TOYOTA GENUINO",
+        "estoqueInicial": "5",
+        "entradas": "0",
+        "saidas": "1",
+        "estoqueFinal": "4",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000351",
+        "produto": "CAPA PEDAL FREIO TOY. 7/8FG",
+        "estoqueInicial": "3",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "3",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "014558",
+        "produto": "CAPA PEDAL FREIO ESTACIONAMENTO TOY. 8FG GENUINA",
+        "estoqueInicial": "3",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "3",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000936",
+        "produto": "H3 12V",
+        "estoqueInicial": "23",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "23",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "001893",
+        "produto": "H3 24V",
+        "estoqueInicial": "22",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "22",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "001863",
+        "produto": "LAMPADA P. AGUA GRANDE 12V",
+        "estoqueInicial": "30",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "30",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "001011",
+        "produto": "LAMPADA 69 12V",
+        "estoqueInicial": "42",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "42",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "001310",
+        "produto": "LAMPADA 67 12V P.",
+        "estoqueInicial": "13",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "13",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "002423",
+        "produto": "LAMPADA PINGO D'AGUA P.",
+        "estoqueInicial": "10",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "10",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "001309",
+        "produto": "LAMPADA 2 POLOS",
+        "estoqueInicial": "40",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "40",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000819",
+        "produto": "LAMPADA 1141 12V 1 POLO",
+        "estoqueInicial": "40",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "40",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000424",
+        "produto": "FUSIVEL 3O AMP TOY. 8FG GENUINO",
+        "estoqueInicial": "0",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "0",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000367",
+        "produto": "FUSIVEL 25 AMP TOY. 8FG GENUINO",
+        "estoqueInicial": "0",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "0",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000368",
+        "produto": "FUSIVEL 20 AMP TOY. 8FG GENUINO",
+        "estoqueInicial": "0",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "0",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000369",
+        "produto": "FUSIVEL 15 AMP TOY. 8FG GENUINO",
+        "estoqueInicial": "0",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "0",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "015799",
+        "produto": "HELICE RADIADOR MOTOR TOYOTA 4Y",
+        "estoqueInicial": "0",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "0",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "016154",
+        "produto": "ROLDANA DA MANGUEIRA TOY. 8FG GENUINA",
+        "estoqueInicial": "3",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "3",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "011774",
+        "produto": "REPARO CILINDRO CENTRAL 8FGU 2.5 TOYOTA",
+        "estoqueInicial": "5",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "5",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "011202",
+        "produto": "MICRO CHAVE COMANDO HIDR. TOYOTA 8FG",
+        "estoqueInicial": "0",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "0",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "016500",
+        "produto": "SENSOR DO BANCO TOY. 8FG GENUINO",
+        "estoqueInicial": "3",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "3",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "006111",
+        "produto": "RELE AUXILIAR DE PARTIDA TOYOTA",
+        "estoqueInicial": "1",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "1",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "014021",
+        "produto": "RELE DO LIMPADOR TOY. 8FG",
+        "estoqueInicial": "2",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "2",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "016130",
+        "produto": "CORRENTE ELEV. CENTRAL TOY. 8FG GENUINO (EK/BL60)",
+        "estoqueInicial": "",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "0",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "008267",
+        "produto": "CONJUNTO REGULADOR DE GAS TOYOTA",
+        "estoqueInicial": "1",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "1",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "002082",
+        "produto": "POLIA BOMBA DAGUA TOY. 7 / 8FG GENUINO",
+        "estoqueInicial": "0",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "0",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000047",
+        "produto": "SAPATA FREIO TOY. 7/8 FG 2.5 GENUINA",
+        "estoqueInicial": "5",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "5",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "015500",
+        "produto": "MOLA PINO DA BUZINA TOY. 8FG",
+        "estoqueInicial": "15",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "15",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "007680",
+        "produto": "MOLA CONTATO BUZINA TOY. 8FG",
+        "estoqueInicial": "5",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "5",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "007681",
+        "produto": "ANEL CONTATO DA BUZINA TOY. 8FG",
+        "estoqueInicial": "5",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "5",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "007682",
+        "produto": "PINO DA BUZINA TOY. 8FG",
+        "estoqueInicial": "15",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "15",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "017416",
+        "produto": "ARRUELA CONICA PINO DIRECIONAL TOY. 8FG",
+        "estoqueInicial": "14",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "14",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000168",
+        "produto": "ADITIVO DE ARREFECIMENTO P/ RADIADOR",
+        "estoqueInicial": "4",
+        "entradas": "2",
+        "saidas": "0",
+        "estoqueFinal": "6",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "005458",
+        "produto": "REPARO BOMBA HIDRAULICA TOY. 8FG",
+        "estoqueInicial": "2",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "2",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "015908",
+        "produto": "SENSOR TEMPERATURA MOTOR TOY. 8FG GENUINO",
+        "estoqueInicial": "1",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "1",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "018832",
+        "produto": "VALVULA REGULADORA DE PRESSAO GLP TOY. 8FG",
+        "estoqueInicial": "2",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "2",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000732",
+        "produto": "INTERRUPTOR DE FREIO TOY. 7 / 8 FG",
+        "estoqueInicial": "0",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "0",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "017361",
+        "produto": "MOLA AJUSTE SAPATA FREIO TOYOTA 8FG25 GENUINO",
+        "estoqueInicial": "5",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "5",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "010612",
+        "produto": "REPARO REDUTOR GLP TOYOTA",
+        "estoqueInicial": "1",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "1",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "017459",
+        "produto": "VALVULA SEGURANCA CIL. CENTRAL 8FG GENUINA",
+        "estoqueInicial": "0",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "0",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000731",
+        "produto": "VALVULA SOLENOIDE TOY. 7 / 8 FG",
+        "estoqueInicial": "0",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "0",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "001802",
+        "produto": "SUPORTE EXTINTOR 1KG",
+        "estoqueInicial": "5",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "5",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "014604",
+        "produto": "SENSOR PRESSAO OLEO MOTOR TOY. GENUINO",
+        "estoqueInicial": "2",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "2",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000092",
+        "produto": "REP. CIL. RODA TOY. 2.5",
+        "estoqueInicial": "1",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "1",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000093",
+        "produto": "REP. CIL. RODA TOY. 1.8",
+        "estoqueInicial": "0",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "0",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "008946",
+        "produto": "VALVULA SOLENOIDE COMBUSTIVEL TOY. 8FG",
+        "estoqueInicial": "3",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "3",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "017008",
+        "produto": "SENSOR DIRECAO TOYOTA RRE160H",
+        "estoqueInicial": "10",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "10",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000272",
+        "produto": "AMORTECEDOR CAPU TOY. 8FG P",
+        "estoqueInicial": "1",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "1",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000687",
+        "produto": "BUCHA ALAVANCA ELEVACAO TOY. 8FG GENUINA ",
+        "estoqueInicial": "20",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "20",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "015104",
+        "produto": "COIFA DAS ALAVANCAS TOY. 8FG GENUINA",
+        "estoqueInicial": "5",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "5",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "017752",
+        "produto": "CILINDRO RODA TOYOTA 1.8",
+        "estoqueInicial": "11",
+        "entradas": "0",
+        "saidas": "1",
+        "estoqueFinal": "10",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "016880",
+        "produto": "VALVULA SOLENOIDE RODOGAS TOY. 8FGU",
+        "estoqueInicial": "3",
+        "entradas": "0",
+        "saidas": "2",
+        "estoqueFinal": "1",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000072",
+        "produto": "BUCHA MANCAL TORRE TOY.7FG",
+        "estoqueInicial": "6",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "6",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "020684",
+        "produto": "OLEO MOTOR D.",
+        "estoqueInicial": "35",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "35",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "001482",
+        "produto": "FILTRO OLEO MOTOR TOY. 7FGK40",
+        "estoqueInicial": "5",
+        "entradas": "0",
+        "saidas": "1",
+        "estoqueFinal": "4",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "010122",
+        "produto": "RADIADOR TOYOTA 8FGU 18",
+        "estoqueInicial": "3",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "3",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "019099",
+        "produto": "RADIADOR TOY. 8FG 2.5 P L700MM",
+        "estoqueInicial": "4",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "4",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "015149",
+        "produto": "CARBURADOR MOTOR 4Y TOYOTA 8FG",
+        "estoqueInicial": "1",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "1",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "012925",
+        "produto": "KIT REPARO DO CARBURADOR TOY.  8FG",
+        "estoqueInicial": "2",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "2",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "013123",
+        "produto": "JUNTA TAMPA CORRENTE MOTOR TOYOTA GENUINA ",
+        "estoqueInicial": "0",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "0",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "001974",
+        "produto": "ROLAM. PALETEIRA SAUR 6205",
+        "estoqueInicial": "1",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "1",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "005253",
+        "produto": "ROLAMENTO C/ TRAVA (6010-NR) 6207",
+        "estoqueInicial": "0",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "0",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "005849",
+        "produto": "ENGRENAGEM BOMBA OLEO MOTOR TOY.",
+        "estoqueInicial": "1",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "1",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "004023",
+        "produto": "CORRENTE DO MOTOR TOYOTA",
+        "estoqueInicial": "1",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "1",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "005848",
+        "produto": "CORRENTE BOMBA HIDRAULICA DO MOTOR TOY.",
+        "estoqueInicial": "1",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "1",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "005949",
+        "produto": "TENSOR CORRENTE MOTOR TOYOTA 4Y",
+        "estoqueInicial": "1",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "1",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "005950",
+        "produto": "TENSOR VIBRACAO CORRENTE COMANDO VALVULA TOY. 8FG",
+        "estoqueInicial": "1",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "1",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "003851",
+        "produto": "BUCHA MANCAL TORRE CILINDRO DE INCLINACAO TOY. 8FG",
+        "estoqueInicial": "0",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "0",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "013238",
+        "produto": "SENSOR DO BANCO TOYOTA 8FG",
+        "estoqueInicial": "4",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "4",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "017335",
+        "produto": "ENGRENAGEM DA CORRENTE COMANDO VALVULA TOY. 8FG",
+        "estoqueInicial": "1",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "1",
+        "codigoNovo": "017332"
+      },
+      {
+        "codSistema": "014298",
+        "produto": "VARETA NIVEL OLEO TRANS. TOY. 8FG",
+        "estoqueInicial": "2",
+        "entradas": "1",
+        "saidas": "0",
+        "estoqueFinal": "3",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "017143",
+        "produto": "SINALIZADOR TETO LED",
+        "estoqueInicial": "11",
+        "entradas": "0",
+        "saidas": "1",
+        "estoqueFinal": "10",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "016449",
+        "produto": "CONJ. BOMBA D'AGUA TOY 8FG GENUINO",
+        "estoqueInicial": "1",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "1",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "016114",
+        "produto": "SAPATA FREIO TOY. 8FG 1.8 GENUINO",
+        "estoqueInicial": "7",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "7",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "014201",
+        "produto": "RODA DE CARGA TOY. LWE / LPE / LWI",
+        "estoqueInicial": "12",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "12",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "015080",
+        "produto": "RODA DE APOIO TOY. LWE / LPE / SWE",
+        "estoqueInicial": "12",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "12",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "018794",
+        "produto": "RODA DE TRACAO TOYOTA LWE GENUINO",
+        "estoqueInicial": "2",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "2",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "020347",
+        "produto": "KIT TAMPA  E MANGUEIRA RADIADOR TOY.8FGB",
+        "estoqueInicial": "2",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "2",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "011815",
+        "produto": "PLACA SUSTENTACAO CARRINHO TOY. 1.8 2.5",
+        "estoqueInicial": "4",
+        "entradas": "2",
+        "saidas": "0",
+        "estoqueFinal": "6",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "015472 ",
+        "produto": "REPAROS DO PISTAO PALETEIRA TOY. BT ",
+        "estoqueInicial": "10",
+        "entradas": "0",
+        "saidas": "8",
+        "estoqueFinal": "2",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "015470",
+        "produto": "ROLAMENTO RODA DIRECAO PALETEIRA TOY. BT GENUINO",
+        "estoqueInicial": "10",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "10",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "015802",
+        "produto": "SIRENE DE RE TOYOTA 8FBE GENUINO",
+        "estoqueInicial": "2",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "2",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "015460",
+        "produto": "FAROL BLUE SPOT LED 12 48V",
+        "estoqueInicial": "3",
+        "entradas": "4",
+        "saidas": "0",
+        "estoqueFinal": "7",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "010220",
+        "produto": "REPARO CILINDRO INCLIN. TOY. 5FD70",
+        "estoqueInicial": "1",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "1",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "016161",
+        "produto": "PINO REI MANGA EIXO L.E TOY. 8FG GENUINO",
+        "estoqueInicial": "5",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "5",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "009147",
+        "produto": "SENSOR BANCO TOY. 8FG",
+        "estoqueInicial": "3",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "3",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "012473",
+        "produto": "SENSOR BANCO TOY. 8FG TIPO CONTACTOR",
+        "estoqueInicial": "2",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "2",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "014189",
+        "produto": "LANTERNA SETA PISCA TOY. 8FGU GENUINA",
+        "estoqueInicial": "1",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "1",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "006118",
+        "produto": "CILINDRO RODA FREIO TOY. 8FG 2.5",
+        "estoqueInicial": "7",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "7",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "014247",
+        "produto": "GOVERNOR TOYOTA 4Y",
+        "estoqueInicial": "2",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "2",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "015461",
+        "produto": "FILTRO HIDRAULICO TOYOTA RRE GENUINO",
+        "estoqueInicial": "1",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "1",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "016018",
+        "produto": "FAROL LED REDONDO TOYOTA 8FG GENUINO",
+        "estoqueInicial": "4",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "4",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "",
+        "produto": "DESCARBONIZANTE",
+        "estoqueInicial": "3",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "3",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "",
+        "produto": "DESENGRAXANTE",
+        "estoqueInicial": "15",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "15",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "",
+        "produto": "SUPORTE FILTRO OLEO TRANS.",
+        "estoqueInicial": "2",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "2",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "016056",
+        "produto": "REPARO RODOGAS GLP TOYOTA 8FG",
+        "estoqueInicial": "4",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "4",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "003829",
+        "produto": "SENSOR VELOCIDADE TOY. 8FG 1.8/2.5",
+        "estoqueInicial": "4",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "4",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "",
+        "produto": "TELA PROTECAO PAINEL HORIMETRO",
+        "estoqueInicial": "6",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "6",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000155",
+        "produto": "PINO DIRECIONAL. / TIRANTE TOY.",
+        "estoqueInicial": "2",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "2",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000156",
+        "produto": "PORCA PINO DIREC. TOY.",
+        "estoqueInicial": "7",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "7",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000153",
+        "produto": "BARRA ACOPLAM. INF. PINO DIREC. TOY FURO REDON",
+        "estoqueInicial": "2",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "2",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "000154",
+        "produto": "BARRA ACOPLAM. SUP. DIREC. TOY. FURO SEXTAVADO",
+        "estoqueInicial": "2",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "2",
+        "codigoNovo": ""
+      },
+      {
+        "codSistema": "016108",
+        "produto": "BUCHA PINO DIRECIONAL TOY. 8FG GENUINO",
+        "estoqueInicial": "20",
+        "entradas": "0",
+        "saidas": "0",
+        "estoqueFinal": "20",
+        "codigoNovo": ""
+      }
+    ]
+}
