@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const novoProdutoDiv = document.getElementById("novoProduto");
     const btnAlterarEstoque = document.getElementById("alterarEstoque");
     const quantidadeInput = document.getElementById("quantidade"); // Campo de quantidade
-    const quantidadeLabel = document.querySelector('label[for="quantidade"]'); // Rótulo de Quantidade:
+    const quantidadeLabel = document.querySelector('label[for="quantidade"]'); // Rótulo de Quantidade
     const responsavelDiv = document.getElementById("responsavelDiv"); // Campo de responsável
     const responsavelInput = document.getElementById("responsavel"); // Campo de nome do responsável
 
@@ -38,19 +38,14 @@ document.addEventListener("DOMContentLoaded", function () {
     function loadEstoqueSalvo() {
         // Carrega os itens salvos no navegador
         let estoqueCarregado = localStorage.getItem("estoque");
-        
-        // Verifica se a variável estoqueCarregado não é nula, e, em caso afirmativo, retorna true
         if (estoqueCarregado)
-            return JSON.parse(localStorage.getItem("estoque"));
-
+            return JSON.parse(estoqueCarregado);
         return null;
     }
 
     function saveEstoqueData() {
-        // Transforma em String
+        // Salva os dados do estoque no localStorage
         let estoque = JSON.stringify(estoqueData);
-        
-        // Verifica se o estoque não é nulo
         if (estoque)
             localStorage.setItem("estoque", estoque);
     }
@@ -60,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
         estoqueDiv.innerHTML = ''; // Limpar a tabela anterior
         const table = document.createElement('table');
         table.classList.add('tabela-estoque');
-
         const headerRow = document.createElement('tr');
         headerRow.innerHTML = `  
             <th>Produto</th>
@@ -113,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Gera as sugestões a partir dos itens filtrados
         suggestionsDiv.innerHTML = filteredItems.map(item =>
             `<div class="suggestion-item">${item.produto}</div>`
-        ).join(''); 
+        ).join('');
 
         suggestionsDiv.style.display = 'block'; // Exibe a lista de sugestões
         adjustSuggestionsPosition(); // Ajusta a posição das sugestões
@@ -134,12 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Função para atualizar a tabela baseada no termo de pesquisa (apenas para a pesquisa principal)
-    function updateTableBasedOnSearch(searchTerm) {
-        const filteredItems = performSearch(searchTerm, estoqueData);
-        renderTable(filteredItems); // Renderiza a tabela com os itens filtrados
-    }
-
     // Função para lidar com as alterações no estoque
     function handleStockOperation() {
         const operacao = operacaoSelect.value;  // A operação selecionada (retirada, devolução, chegada, novo, excluir)
@@ -149,7 +137,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const local = document.getElementById("local").value;  // Localização do produto
         const responsavel = responsavelInput.value;  // Nome do responsável (apenas para retirada ou devolução)
 
-        // ** Correção 1: Não solicitar a quantidade na operação de exclusão **
+        // Mostrar ou ocultar o campo de responsável com base na operação
+        if (operacao === "retirada" || operacao === "devolucao") {
+            responsavelDiv.style.display = 'block'; // Exibe o campo de responsável
+        } else {
+            responsavelDiv.style.display = 'none'; // Oculta o campo de responsável para outras operações
+        }
+
         if (operacao === "exclusao") {
             quantidadeInput.style.display = 'none'; // Esconde o campo de quantidade
             quantidadeLabel.style.display = 'none'; // Esconde o rótulo de "Quantidade:"
@@ -158,78 +152,55 @@ document.addEventListener("DOMContentLoaded", function () {
             quantidadeLabel.style.display = 'block'; // Garante que o rótulo "Quantidade:" apareça novamente
         }
 
-        // ** Correção 2: Exibição do campo de responsável na operação de retirada e devolução **
         if (operacao === "retirada" || operacao === "devolucao") {
-            //responsavelDiv.style.display = 'block'; // Exibe o campo de responsável
-
-            // ** Novo comportamento: A caixa do nome do responsável aparece imediatamente e a validação acontece na confirmação da operação **
             if (!responsavel || responsavel.trim() === "") {
                 alert("Por favor, informe o nome do responsável pela operação.");
-                return;  // Interrompe se o nome do responsável não for fornecido
-            }
-
-            // Validação para permitir apenas letras e espaços no nome do responsável
-            const regex = /^[A-Za-záàãâéèêíïóòõôúç\s]+$/;
-            if (!regex.test(responsavel)) {
-                alert("O nome do responsável deve conter apenas letras e espaços.");
                 return;
             }
         }
 
-        // ** Correção 3: Verificação de validade da quantidade **
         if (operacao !== "exclusao" && (isNaN(quantidade) || quantidade <= 0)) {
             alert("Por favor, insira uma quantidade válida.");
-            return; // Se a quantidade for inválida, interrompe a execução
+            return;
         }
 
-        let item = estoqueData.find(item => item.produto.toLowerCase() === produto.toLowerCase()); // Encontrar o item no estoque
+        let item = estoqueData.find(item => item.produto.toLowerCase() === produto.toLowerCase());
 
         if (operacao === "retirada" || operacao === "devolucao") {
             if (item) {
-                // Atualiza a quantidade do item com base na operação
                 if (operacao === "retirada") {
                     item.estoqueFinal -= quantidade;
-                    
-                    console.log(estoqueData);
-                    saveEstoqueData();
                 } else if (operacao === "devolucao") {
                     item.estoqueFinal += quantidade;
-
-                    saveEstoqueData();
                 }
+                saveEstoqueData();
             } else {
                 alert("Produto não encontrado no estoque.");
-                return; // Produto não encontrado no estoque
+                return;
             }
         } else if (operacao === "novo") {
             if (!produto || !quantidade || !codSistema || !local) {
                 alert("Por favor, preencha todos os campos para um novo produto.");
-                return; // Não permite adicionar um novo produto sem todos os dados
+                return;
             }
             estoqueData.push({ produto, estoqueFinal: quantidade, codSistema, local });
-            //Salva item no navegador
             saveEstoqueData();
         } else if (operacao === "exclusao") {
-            // Lógica para excluir um produto
             if (item) {
                 const confirmDelete = confirm(`Tem certeza que deseja excluir o produto "${produto}"?`);
                 if (confirmDelete) {
                     const index = estoqueData.indexOf(item);
                     estoqueData.splice(index, 1); // Remove o item do estoque
                     alert(`Produto "${produto}" excluído com sucesso!`);
-
-                    //Salva item no navegador
                     saveEstoqueData();
                 }
             } else {
                 alert("Produto não encontrado para exclusão.");
-                return;  // Produto não encontrado
+                return;
             }
         }
 
-        // Atualiza a tabela do estoque com os dados mais recentes
         renderTable(estoqueData); 
-
         modal.style.display = 'none';  // Fecha o modal após a operação
         document.body.classList.remove('modal-aberta');  // Libera a rolagem da página
         clearModalOnOpen();  // Limpa os campos do modal
@@ -237,109 +208,72 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Função para limpar o modal ao abrir
     function clearModalOnOpen() {
-        produtoInput.value = ''; // Limpa o campo de produto
-        quantidadeInput.value = ''; // Limpa o campo de quantidade
-        document.getElementById("codSistema").value = ''; // Limpa o campo de código do sistema
-        document.getElementById("local").value = ''; // Limpa o campo de localização
-        responsavelInput.value = ''; // Limpa o campo de responsável
-        suggestionsDiv.innerHTML = ''; // Limpa as sugestões
-        suggestionsDiv.style.display = 'none'; // Esconde as sugestões
-
-        operacaoSelect.value = "retirada"; // Reseta o seletor de operação
-        novoProdutoDiv.style.display = 'none'; // Esconde os campos do novo produto
-       // responsavelDiv.style.display = 'none'; // Esconde o campo de responsável
-
-        // Garante que o campo de quantidade e seu rótulo apareçam
-        quantidadeInput.style.display = 'block';
-        quantidadeLabel.style.display = 'block';
+        produtoInput.value = ''; 
+        quantidadeInput.value = ''; 
+        document.getElementById("codSistema").value = ''; 
+        document.getElementById("local").value = ''; 
+        responsavelInput.value = ''; 
+        suggestionsDiv.innerHTML = ''; 
+        suggestionsDiv.style.display = 'none'; 
+        operacaoSelect.value = "retirada"; 
+        novoProdutoDiv.style.display = 'none'; 
     }
 
-    // Pesquisar apenas no campo de pesquisa principal
+    // Pesquisar no campo de pesquisa principal
     searchInput.addEventListener('input', function () {
-        updateTableBasedOnSearch(this.value); // Atualiza a tabela da tela principal
+        const filteredItems = performSearch(this.value, estoqueData);
+        renderTable(filteredItems);
     });
 
-    // Evento para digitação no campo de pesquisa do modal (produtoInput)
+    // Pesquisar no campo de pesquisa do modal
     produtoInput.addEventListener('input', function () {
-        const searchTerm = this.value;
-        const filteredItems = performSearch(searchTerm, estoqueData);
-        displaySuggestions(filteredItems); // Exibe apenas as sugestões, sem afetar a tabela principal
+        const filteredItems = performSearch(this.value, estoqueData);
+        displaySuggestions(filteredItems); // Exibe as sugestões
     });
 
     // Fechar sugestões ao clicar fora da caixa de pesquisa
     document.addEventListener('click', function (event) {
         if (!suggestionsDiv.contains(event.target) && event.target !== produtoInput) {
-            suggestionsDiv.style.display = 'none'; // Fecha as sugestões ao clicar fora
+            suggestionsDiv.style.display = 'none'; 
         }
     });
 
-    // Função para lidar com a seleção de uma sugestão
-    function handleSuggestionSelection(index) {
-        if (suggestionItems[index]) {
-            produtoInput.value = suggestionItems[index].produto; // Preenche o campo de pesquisa no modal com o item selecionado
-            suggestionsDiv.style.display = 'none'; // Esconde as sugestões após a seleção
-        }
-    }
-
-    // Evento para pressionar a tecla "Enter" no campo de pesquisa do modal
-    produtoInput.addEventListener('keydown', function (event) {
-        if (event.key === "Enter" && suggestionsDiv.style.display === 'block') {
-            const selectedItem = document.querySelector('.suggestion-item.selected');
-            if (selectedItem) {
-                handleSuggestionSelection(Array.from(suggestionsDiv.children).indexOf(selectedItem));
-            } else if (suggestionItems.length > 0) {
-                // Se nenhuma sugestão estiver selecionada, preenche com o primeiro item
-                handleSuggestionSelection(0);
-            }
-        }
-    });
-
-    // Evento para selecionar uma sugestão ao clicar
+    // Seleção de sugestão ao clicar
     suggestionsDiv.addEventListener('click', function (event) {
         const itemIndex = Array.from(suggestionsDiv.children).indexOf(event.target);
         if (itemIndex >= 0) {
-            handleSuggestionSelection(itemIndex);
+            produtoInput.value = suggestionItems[itemIndex].produto; 
+            suggestionsDiv.style.display = 'none';
         }
     });
 
-    // Abrir e fechar modal
-    btnFazerLancamento.addEventListener('click', () => {
-        clearModalOnOpen(); // Limpa o modal ao abrir
-        modal.style.display = 'block'; // Exibe o modal
-        document.body.classList.add('modal-aberta'); // Bloqueia a rolagem da página
+    // Abrir e fechar modal através da navbar
+    const modalActions = {
+        'navNovoProduto': 'novo',
+        'navExcluirProduto': 'exclusao',
+        'navRetirada': 'retirada',
+        'navDevolucao': 'devolucao'
+    };
+
+    Object.keys(modalActions).forEach(id => {
+        document.getElementById(id).addEventListener("click", function () {
+            openModal();
+            operacaoSelect.value = modalActions[id];
+        });
     });
 
-    btnFecharModal.addEventListener('click', () => {
-        modal.style.display = 'none'; // Fecha o modal
-        document.body.classList.remove('modal-aberta'); // Libera a rolagem da página
-    });
+    // Funções para abrir e fechar o modal
+    function openModal() {
+        modal.style.display = "block";
+    }
 
-    // Mostrar campos para novo produto e ocultar o campo de quantidade para exclusão
-    operacaoSelect.addEventListener('change', function () {
-        novoProdutoDiv.style.display = (this.value === "novo") ? 'block' : 'none';
-        responsavelDiv.style.display = (this.value === "retirada" || this.value === "devolucao") ? 'block' : 'none';
+    function closeModal() {
+        modal.style.display = "none";
+    }
 
-        if (this.value === "exclusao") {
-            quantidadeInput.style.display = 'none'; // Oculta o campo de quantidade para exclusão
-            quantidadeLabel.style.display = 'none'; // Oculta o rótulo de "Quantidade:" para exclusão
-        } else {
-            quantidadeInput.style.display = 'block'; // Mostra o campo de quantidade para outras operações
-            quantidadeLabel.style.display = 'block'; // Garante que o rótulo "Quantidade:" apareça novamente
-        }
-    });
-
-    // Validar quantidade para aceitar apenas números positivos
-    quantidadeInput.addEventListener('input', function () {
-        const value = parseInt(quantidadeInput.value, 10);
-        if (value < 0 || isNaN(value)) {
-            quantidadeInput.value = ''; // Limpa o campo caso o valor seja inválido
-        }
-    });
-
-    // Confirmar alteração no estoque
+    btnFecharModal.addEventListener('click', closeModal);
     btnAlterarEstoque.addEventListener('click', handleStockOperation);
 
     // Carregar os dados do estoque
     loadEstoqueData();
 });
-

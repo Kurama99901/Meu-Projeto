@@ -158,9 +158,18 @@ footer p {
     max-width: 90%;  /* Tornar o conteúdo mais responsivo em telas menores */
    top: 13px;/* Distância do topo */
 }
+
 /* CSS para desabilitar a rolagem da página */
 body.modal-aberta {
     overflow: hidden;
+}
+/* Campo de responsável (inicialmente oculto) */
+#responsavelDiv {
+    display: none; /* Inicialmente oculto */
+}
+
+#responsavelDiv.show {
+    display: block; /* Exibe quando necessário */
 }
 
 /* Estilo do botão de fechar modal */
@@ -183,7 +192,6 @@ body.modal-aberta {
     from { opacity: 0; transform: scale(0.9); }
     to { opacity: 1; transform: scale(1); }
 }
-
 
 /* Botões */
 button {
@@ -353,6 +361,3 @@ label {
         padding: 15px;
     }
 }
-
-
-
