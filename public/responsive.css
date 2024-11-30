@@ -27,21 +27,16 @@ nav {
     flex-grow: 1;
     margin-top: 57px;
     width: auto;
-    flex-wrap: nowrap; /* Impede a quebra de linha entre os itens */
 }
-
 
 /* Estilo dos links na navegação */
 nav a {
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1rem; /* Tamanho de fonte relativo */
     color: #333;
     padding: 5px 10px;
     transition: background-color 0.3s ease;
-    white-space: nowrap; /* Impede a quebra de linha */
-    min-width: 100px; /* Garantir largura mínima */
 }
-
 
 nav a:hover {
     background-color: rgba(163, 161, 161, 0.062); /* Efeito hover */
@@ -69,7 +64,7 @@ nav a:hover {
 .logo2 {
     max-height: 70px;
     position: absolute;
-    right: 55px; /* Afastada da borda direita */
+    right: 30px; /* Afastada da borda direita */
     top: 50%;
     transform: translateY(-50%); /* Centraliza verticalmente */
     flex-shrink: 0;
@@ -124,56 +119,57 @@ footer {
 
 /* Responsividade */
 
-/* Para telas menores que 1200px */
-@media screen and (max-width: 1200px) {
-    nav {
-        justify-content: flex-start; /* Alinha os itens à esquerda */
-        gap: 15px;
-    }
-
-    .logo1, .logo2 {
-        max-height: 60px; /* Ajusta o tamanho das logos */
-    }
-}
-
-/* Para telas menores que 1024px (Tablets) */
-@media screen and (max-width: 1024px) {
+/* Para telas menores que 768px (Smartphones) */
+@media screen and (max-width: 768px) {
     .cabeçalho {
         flex-direction: column;  /* Organiza os itens na vertical */
         text-align: center;
-        padding: 15px;
+        padding: 15px 10px;
+    }
+
+    /* Logo1 e Logo2 em linha ou empilhadas */
+    .logo1, .logo2 {
+        max-height: 50px;
+        margin-bottom: 10px;  /* Cria um espaçamento entre as logos */
     }
 
     nav {
         flex-direction: column; /* Empilha os links da navegação */
-        gap: 10px; 
-        margin-top: 20px;
+        gap: 15px;
+        margin-top: 20px; /* Adiciona um pouco de espaço no topo */
+        justify-content: center; /* Centraliza os links */
     }
 
-    .logo1, .logo2 {
-        max-height: 50px;  /* Ajusta o tamanho das logos */
+    nav a {
+        font-size: 16px;
+        padding: 8px 20px;
     }
 
     .barra_topo {
-        top: 100px; /* Ajuste de posição da barra */
+        top: 90px; /* Ajusta a posição da barra para não sobrepor o conteúdo */
     }
 
     footer {
-        padding: 10px 20px;
+        padding: 15px 10px;
+        height: auto;  /* Ajusta a altura do footer */
     }
 
     .text-f {
         font-size: 14px;
-        margin-top: 150px;
+        margin-top: 30px; /* Ajusta a margem para um melhor espaçamento */
     }
 
     .fundo_footer {
-        height: 12px;
+        height: 12px; /* Ajusta a altura do fundo */
     }
 }
 
-/* Para telas menores que 768px (Smartphones) */
-@media screen and (max-width: 768px) {
+/* Para telas menores que 480px (Smartphones menores) */
+@media screen and (max-width: 480px) {
+    .cabeçalho {
+        padding: 10px 5px;  /* Menos padding em dispositivos muito pequenos */
+    }
+
     nav {
         flex-direction: column;
         gap: 10px;
@@ -181,51 +177,12 @@ footer {
     }
 
     nav a {
-        font-size: 16px;
-        padding: 8px 15px;
+        font-size: 14px;
+        padding: 6px 15px;
     }
 
     .logo1, .logo2 {
-        max-height: 50px;
-    }
-
-    .barra_topo {
-        top: 90px;
-    }
-
-    footer {
-        padding: 10px 15px;
-    }
-
-    .text-f {
-        font-size: 14px;
-        margin-top: 150px;
-    }
-
-    .fundo_footer {
-        height: 12px;
-    }
-}
-
-/* Para telas menores que 480px (Smartphones menores) */
-@media screen and (max-width: 480px) {
-    .cabeçalho {
-        padding: 5px 10px;
-    }
-
-    nav {
-        flex-direction: column;
-        gap: 8px;
-        margin-top: 10px;
-    }
-
-    nav a {
-        font-size: 14px;
-        padding: 6px 12px;
-    }
-
-    .logo1, .logo2 {
-        max-height: 40px;
+        max-height: 40px; /* Ajusta as logos para uma altura ainda menor */
     }
 
     .barra_topo {
@@ -233,12 +190,12 @@ footer {
     }
 
     footer {
-        padding: 10px 15px;
+        padding: 10px 5px;
     }
 
     .text-f {
         font-size: 12px;
-        margin-top: 150px;
+        margin-top: 20px; /* Ajuste no texto do footer para evitar sobreposição */
     }
 
     .fundo_footer {

@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let estoqueData = []; // Variável para armazenar o estoque carregado
     let suggestionItems = []; // Variável para armazenar as sugestões geradas
-    let currentIndex = -1; // Índice da sugestão selecionada
 
     // Função para carregar o estoque de um arquivo JSON
     async function loadEstoqueData() {
@@ -28,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             let estoqueDataCarregado = loadEstoqueSalvo();
             if (estoqueDataCarregado !== null && estoqueDataCarregado !== estoqueData)
-                estoqueData = estoqueDataCarregado;
+                estoqueData = estoqueDataCarregado; 
 
             renderTable(estoqueData); // Renderiza a tabela com os dados carregados
         } catch (error) {
@@ -44,24 +43,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function saveEstoqueData() {
-        // Envia os dados do estoque para o servidor
-        fetch('http://localhost:3000/salvar-estoque', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',  // Definindo o tipo de conteúdo como JSON
-            },
-            body: JSON.stringify(estoqueData)  // Convertendo os dados do estoque para JSON
-        })
-        .then(response => response.json())  // Aguardando a resposta JSON do servidor
-        .then(data => {
-            console.log('Dados salvos no servidor:', data.message);
-        })
-        .catch(error => {
-            console.error('Erro ao salvar no servidor:', error);
-        });
+        let estoque = JSON.stringify(estoqueData);
+        if (estoque)
+            localStorage.setItem("estoque", estoque);
     }
-    
-    
 
     function renderTable(items) {
         estoqueDiv.innerHTML = '';
@@ -107,7 +92,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function displaySuggestions(filteredItems) {
         suggestionItems = filteredItems;
-        currentIndex = -1; // Resetando o índice de seleção
         if (filteredItems.length === 0) {
             suggestionsDiv.innerHTML = '<div>Nenhum produto encontrado</div>';
             suggestionsDiv.style.display = 'block';
@@ -124,20 +108,20 @@ document.addEventListener("DOMContentLoaded", function () {
     // Função para atualizar os campos do modal de acordo com a operação selecionada
     function updateModalFields() {
         const operacao = operacaoSelect.value;
-
+    
         // Escondendo todos os campos
         responsavelDiv.style.display = 'none';
         novoProdutoDiv.style.display = 'none';
         quantidadeLabel.style.display = 'none';  // Esconde a quantidade por padrão
         quantidadeInput.style.display = 'none';  // Esconde o input de quantidade por padrão
-
+    
         // Limpar campos
         produtoInput.value = '';
         quantidadeInput.value = '';
         responsavelInput.value = '';
         codSistemaInput.value = '';
         localInput.value = '';
-
+    
         // Mostrar campos necessários para cada operação
         if (operacao === 'retirada' || operacao === 'devolucao') {
             responsavelDiv.style.display = 'block'; // Responsável é necessário para Retirada e Devolução
@@ -151,27 +135,31 @@ document.addEventListener("DOMContentLoaded", function () {
             quantidadeLabel.style.display = 'block'; // Quantidade necessária
             quantidadeInput.style.display = 'block'; // Exibe o campo de quantidade
         }
-
+    
         if (operacao === 'exclusao') {
             quantidadeLabel.style.display = 'none'; // Não precisa de quantidade para exclusão
             quantidadeInput.style.display = 'none'; // Esconde a quantidade para exclusão
         }
     }
 
-    // Função para validar a quantidade (apenas números inteiros positivos)
-    quantidadeInput.addEventListener('input', function () {
-        quantidadeInput.value = quantidadeInput.value.replace(/[^0-9]/g, ''); // Remove caracteres não numéricos
+    // Função para validar o código do sistema (apenas números)
+    codSistemaInput.addEventListener('input', function() {
+        codSistemaInput.value = codSistemaInput.value.replace(/[^0-9]/g, ''); // Remove qualquer caractere não numérico
     });
-// Validação para o campo "Código do Sistema"
-codSistemaInput.addEventListener('input', function () {
-    // Remove qualquer caractere não numérico
-    codSistemaInput.value = codSistemaInput.value.replace(/[^0-9]/g, '');
 
-    // Limita a quantidade de caracteres a 6
-    if (codSistemaInput.value.length > 6) {
-        codSistemaInput.value = codSistemaInput.value.slice(0, 6);
+    // Função para impedir números negativos na quantidade
+    // Função para validar a quantidade (apenas números inteiros positivos)
+quantidadeInput.addEventListener('input', function () {
+    // Remove qualquer caractere não numérico, permitindo apenas números inteiros positivos
+    quantidadeInput.value = quantidadeInput.value.replace(/[^0-9]/g, '');
+
+    // Se o valor for negativo ou não for um número inteiro, removemos o valor
+    if (quantidadeInput.value < 0) {
+        quantidadeInput.value = '';
     }
 });
+
+
     // Função para lidar com as alterações no estoque
     function handleStockOperation() {
         const operacao = operacaoSelect.value;
@@ -180,7 +168,7 @@ codSistemaInput.addEventListener('input', function () {
         const codSistema = document.getElementById("codSistema").value;
         const local = document.getElementById("local").value;
         const responsavel = responsavelInput.value;
-
+    
         // Verificando se os campos obrigatórios foram preenchidos de acordo com a operação
         if (operacao === "retirada" || operacao === "devolucao") {
             if (!produto || !quantidade || !responsavel) {
@@ -202,17 +190,19 @@ codSistemaInput.addEventListener('input', function () {
                 alert("Por favor, insira o nome do produto para exclusão.");
                 return;
             }
+            // Aqui não validamos a quantidade, pois a exclusão não requer isso
         }
-
+    
         if (isNaN(quantidade) || quantidade <= 0) {
+            // A validação da quantidade só ocorre para operações onde a quantidade é importante
             if (operacao !== "exclusao") {  // Ignorar a validação de quantidade para exclusão
                 alert("Por favor, insira uma quantidade válida (maior que 0).");
                 return;
             }
         }
-
+    
         let item = estoqueData.find(item => item.produto.toLowerCase() === produto.toLowerCase());
-
+    
         if (operacao === "retirada" || operacao === "devolucao") {
             if (item) {
                 if (operacao === "retirada") {
@@ -239,46 +229,42 @@ codSistemaInput.addEventListener('input', function () {
                 alert("Produto não encontrado no estoque.");
             }
         }
-
+    
         renderTable(estoqueData);
         closeModal();
     }
 
     function closeModal() {
         modal.style.display = 'none';
-        // Restaurar a rolagem da página
-        document.body.style.overflow = 'auto';
     }
 
     function openModal() {
         modal.style.display = 'block';
-        // Desabilitar a rolagem da página
-        document.body.style.overflow = 'hidden';
     }
 
     // Gerenciar os eventos de navegação
     document.getElementById("navRetirada").addEventListener("click", function () {
         openModal();
         operacaoSelect.value = "retirada";
-        updateModalFields();
+        updateModalFields(); // Atualiza os campos conforme a operação
     });
 
     document.getElementById("navDevolucao").addEventListener("click", function () {
         openModal();
         operacaoSelect.value = "devolucao";
-        updateModalFields();
+        updateModalFields(); // Atualiza os campos conforme a operação
     });
 
     document.getElementById("navNovoProduto").addEventListener("click", function () {
         openModal();
         operacaoSelect.value = "novo";
-        updateModalFields();
+        updateModalFields(); // Atualiza os campos conforme a operação
     });
 
     document.getElementById("navExcluirProduto").addEventListener("click", function () {
         openModal();
         operacaoSelect.value = "exclusao";
-        updateModalFields();
+        updateModalFields(); // Atualiza os campos conforme a operação
     });
 
     btnFecharModal.addEventListener("click", closeModal);
@@ -295,10 +281,10 @@ codSistemaInput.addEventListener('input', function () {
     produtoInput.addEventListener("input", function () {
         const searchTerm = produtoInput.value;
         const filteredItems = performSearch(searchTerm, estoqueData);
-        if (produtoInput.value && operacaoSelect.value !== "novo") {
+        if (produtoInput.value && operacaoSelect.value !== "novo") {  // Só exibe sugestões se houver texto e a operação não for "novo"
             displaySuggestions(filteredItems);
         } else {
-            suggestionsDiv.style.display = 'none'; // Esconde se o campo estiver vazio
+            suggestionsDiv.style.display = 'none';  // Esconde se o campo estiver vazio
         }
     });
 
@@ -309,47 +295,5 @@ codSistemaInput.addEventListener('input', function () {
         }
     });
 
-    document.addEventListener("click", function (event) {
-        if (!suggestionsDiv.contains(event.target) && event.target !== produtoInput) {
-            suggestionsDiv.style.display = 'none';  // Fecha a div de sugestões
-        }
-    });
-
-    // Lógica para navegação com as setas do teclado
-    produtoInput.addEventListener("keydown", function (e) {
-        if (suggestionsDiv.style.display === 'block' && suggestionItems.length > 0) {
-            if (e.key === "ArrowDown") {
-                // Navega para baixo na lista de sugestões
-                if (currentIndex < suggestionItems.length - 1) {
-                    currentIndex++;
-                    highlightSuggestion();
-                }
-            } else if (e.key === "ArrowUp") {
-                // Navega para cima na lista de sugestões
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    highlightSuggestion();
-                }
-            } else if (e.key === "Enter") {
-                // Preenche o input com a sugestão selecionada
-                if (currentIndex !== -1) {
-                    produtoInput.value = suggestionItems[currentIndex].produto;
-                    suggestionsDiv.style.display = 'none';
-                }
-            }
-        }
-    });
-
-    function highlightSuggestion() {
-        const suggestionElements = suggestionsDiv.querySelectorAll(".suggestion-item");
-        suggestionElements.forEach((el, index) => {
-            if (index === currentIndex) {
-                el.classList.add("highlight");
-            } else {
-                el.classList.remove("highlight");
-            }
-        });
-    }
-
-    operacaoSelect.addEventListener('change', updateModalFields);
+    operacaoSelect.addEventListener('change', updateModalFields); // Atualiza os campos toda vez que a operação mudar
 });
