@@ -18,45 +18,44 @@ document.addEventListener("DOMContentLoaded", function () {
     let estoqueData = []; // Variável para armazenar o estoque carregado
     let suggestionItems = []; // Variável para armazenar as sugestões geradas
     let currentIndex = -1; // Índice da sugestão selecionada
-    
    // URL da API
-const apiUrl = 'https://estoquejmbrasilia.onrender.com'; // URL pública do servidor
+   const apiUrl = 'https://estoquejmbrasilia.onrender.com'; // URL pública do servidor
 
-// Função para carregar o estoque do servidor
-async function loadEstoqueData() {
-    try {
-        const response = await fetch(`${apiUrl}/estoque`);
-        const data = await response.json();
-        estoqueData = data.estoque || [];
-        renderTable(estoqueData);
-    } catch (error) {
-        console.error("Erro ao carregar os dados do servidor:", error);
-    }
-}
-
-// Função para salvar o estoque no servidor
-function saveEstoqueData() {
-    fetch(`${apiUrl}/salvar-estoque`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(estoqueData)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Erro ao salvar os dados');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Dados salvos no servidor:', data.message);
-    })
-    .catch(error => {
-        console.error('Erro ao salvar no servidor:', error);
-    });
-}
-    function renderTable(items) {
+   // Função para carregar o estoque do servidor
+   async function loadEstoqueData() {
+       try {
+           const response = await fetch(`${apiUrl}/estoque`);
+           const data = await response.json();
+           estoqueData = data.estoque || [];
+           renderTable(estoqueData);
+       } catch (error) {
+           console.error("Erro ao carregar os dados do servidor:", error);
+       }
+   }
+   
+   // Função para salvar o estoque no servidor
+   function saveEstoqueData() {
+       fetch(`${apiUrl}/salvar-estoque`, {
+           method: 'POST',
+           headers: {
+               'Content-Type': 'application/json',
+           },
+           body: JSON.stringify(estoqueData)
+       })
+       .then(response => {
+           if (!response.ok) {
+               throw new Error('Erro ao salvar os dados');
+           }
+           return response.json();
+       })
+       .then(data => {
+           console.log('Dados salvos no servidor:', data.message);
+       })
+       .catch(error => {
+           console.error('Erro ao salvar no servidor:', error);
+       });
+   }
+       function renderTable(items) {
         estoqueDiv.innerHTML = '';
         const table = document.createElement('table');
         table.classList.add('tabela-estoque');

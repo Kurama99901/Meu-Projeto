@@ -1,7 +1,7 @@
 /* Definições gerais */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4; /* Fundo mais claro para melhorar a legibilidade */
+    background-color: #ffffffc9; /* Fundo mais claro para melhorar a legibilidade */
     margin: 0;
     padding: 0;
 }
@@ -14,30 +14,121 @@ body {
     background: white;
     box-shadow: 0 12px 60px rgba(0, 0, 0, 0.1); /* Sombra suave */
     border-radius: 16px;
-    opacity: 0;
-    transform: translateY(-20px);
+    opacity: 1;
+    transform: translateY(0);
     animation: fadeIn 0.6s forwards; /* Animação de fade-in */
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Cabeçalho */
+/* Estilos para a barra de navegação */
 header {
-    text-align: center;
-    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between; /* Espaça o search e a navbar de forma equitativa */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    padding: 20px 0; /* Espaçamento no topo e embaixo */
+}
+#search {
+    position: absolute; /* Posicionamento absoluto em relação ao contêiner pai */
+    top: 20px; /* Distância do topo */
+    right: 20px; /* Distância da direita */
+    padding: 10px;
+    width: 100%;
+    max-width: 300px; /* Largura máxima */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
-h1 {
-    font-size: 2rem;
-    color: #333;
+
+/* Adiciona borda vermelha ao clicar (focar) no campo de pesquisa */
+#search:hover{
+    border-color: red; /* Muda a cor da borda para vermelho */
+    outline: none; /* Remove o contorno padrão */
 }
+/* Estilo para a barra de pesquisa */
+.search-container {
+    display: flex;
+    justify-content: flex-start;
+    flex: 1; /* Ocupa todo o espaço disponível */
+}
+
+.search-container input {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 30px;
+}
+
+/* Estilos para a barra de navegação */
+nav.navbar {
+    display: flex;
+    justify-content: flex-end; /* Alinha os itens da navbar à direita */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    gap: 30px; /* Espaço entre os itens da navbar */
+    flex: 1; /* Garante que a navbar ocupe o espaço restante */
+}
+
+/* Estilo para os links ou botões dentro da navbar */
+nav.navbar a {
+    text-decoration: none; /* Remover qualquer sublinhado */
+    font-size: 18px; /* Aumentar o tamanho do texto */
+    color: #111010c2; /* Cor do texto */
+    font-family: 'Poppins', sans-serif; /* Usando a fonte Poppins */
+    transition: all 0.3s ease; /* Transição suave para todos os efeitos */
+    position: relative; /* Necessário para o pseudo-elemento */
+    display: inline-block; /* Para garantir que o link tenha a forma de texto */
+    padding: 5px 10px; /* Adiciona algum espaço dentro dos links */
+    border-radius: 5px; /* Bordas arredondadas para suavizar a aparência */
+    background-color: transparent; /* Remove qualquer fundo */
+    box-shadow: none; /* Remove a sombra */
+}
+
+/* Efeito de hover nos links dentro de nav.navbar */
+nav.navbar a:hover {
+    color: red; /* Cor do texto ao passar o mouse */
+    text-decoration: none; /* Remover sublinhado do texto */
+    font-size: 16px; /* Diminuir o tamanho do texto */
+    transform: scale(0.95); /* Reduz o tamanho do link */
+    box-shadow: none; /* Remove a sombra no hover */
+}
+
+/* Pseudo-elemento para sublinhado com cor diferente ao passar o mouse */
+nav.navbar a::after {
+    content: "";
+    position: absolute;
+    bottom: -3px; /* Coloca o sublinhado abaixo do texto */
+    left: 0;
+    width: 100%; /* Preenche toda a largura do link */
+    height: 2px; /* Altura do sublinhado */
+    background-color: rgb(0, 0, 104); /* Cor de fundo do sublinhado (azul) */
+    transition: width 0.3s ease; /* Transição suave para o sublinhado */
+    transform: scaleX(0); /* Inicialmente invisível */
+    transform-origin: bottom right; /* Preenchimento da direita para a esquerda */
+}
+
+/* Efeito para o pseudo-elemento (sublinhado azul) ao passar o mouse */
+nav.navbar a:hover::after {
+    transform: scaleX(1); /* Preenche completamente o sublinhado */
+}
+
+/* Remover os pontos da lista e garantir que o menu de navegação fique em linha */
+.navbar-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px; /* Espaçamento entre os links */
+}
+
+.navbar-list li {
+    display: inline-block;
+}
+
 
 /* Tabela de estoque */
+/* Estilos gerais da tabela */
 #estoque {
     overflow: hidden;
     margin-top: 30px;
@@ -45,16 +136,20 @@ h1 {
 
 table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: collapse; /* Remove os espaços entre as células */
     border-radius: 10px;
     background-color: #fff; /* Fundo branco */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para dar um destaque */
+    table-layout: fixed; /* Garante que a tabela respeite a largura do contêiner */
+    margin-bottom: 30px; /* Adiciona um pequeno espaço entre a tabela e outros elementos */
 }
 
+/* Estilo de cabeçalhos e células */
 th, td {
     padding: 15px;
-    text-align: left;
-    border: 1px solid #ddd;
-    transition: background-color 0.3s ease;
+    text-align: center; /* Centraliza o texto nas células */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    word-wrap: break-word; /* Evita que o texto ultrapasse as células */
 }
 
 /* Estilos das colunas */
@@ -71,124 +166,39 @@ tr:nth-child(even) {
 }
 
 tr:hover {
-    background-color: #e0f7fa; /* Azul suave */
+    background-color: #584bca28; /* Azul suave ao passar o mouse */
+    color: #000; /* Cor do texto ao passar o mouse */
 }
 
 td {
     background-color: #fff;
 }
 
-footer {
-    text-align: center;
-    margin-top: 60px;
-    font-size: 0.9em;
-    color: #666;
+/* Melhorando a visibilidade ao passar o mouse */
+tr:hover td {
+    background-color: #2401a100; /* Fundo levemente cinza */
 }
 
-footer p {
-    margin: 5px 0;
+/* Alterando o efeito de hover nos cabeçalhos */
+th, td {
+    font-size: 16px; /* Tamanho da fonte melhorado */
+    color: #444; /* Cor do texto mais escura */
 }
 
-/* Estilo do botão de voltar */
-/* Estilo do botão de voltar dentro do nav.return */
-nav.return .botao-voltar {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background-color: transparent;
+/* Adicionando um estilo para os cabeçalhos ao passar o mouse */
+th:hover {
+    background-color: #ddd; /* Muda o fundo dos cabeçalhos ao passar o mouse */
+    cursor: pointer; /* Cursor de mão para indicar que pode ser interativo */
+}
+
+/* Remover as bordas das células */
+table, th, td {
     border: none;
-    font-size: 16px; /* Tamanho menor do texto */
-    text-decoration: none; /* Remover sublinhado */
-    color: #111010c2; /* Cor do texto */
 }
 
-/* Sem efeito hover para o botão de voltar dentro do nav.return */
-nav.return .botao-voltar:hover {
-    color: #111010c2; /* Sem alteração de cor ao passar o mouse */
-    text-decoration: none; /* Sem sublinhado ao passar o mouse */
-    transform: none; /* Sem transformação */
-}
-
-/* Estilo do link dentro de nav.return */
-nav.return a {
-    text-decoration: none; /* Remover qualquer sublinhado */
-    color: #111010c2; /* Cor do texto */
-    padding: 10px 20px;
-    font-size: 1rem;
-}
-
-/* Sem efeito hover nos links dentro de nav.return */
-nav.return a:hover {
-    color: #111010c2; /* Cor do texto ao passar o mouse */
-    text-decoration: none; /* Não adicionar sublinhado */
-}
-
-/* Estilos para a barra de navegação */
-nav.navbar {
-    display: flex;
-    flex-direction: row; /* Itens da navbar alinhados horizontalmente */
-    justify-content: space-between; /* Espaça os itens uniformemente */
-    align-items: center; /* Alinha os itens verticalmente ao centro */
-    width: 100%;
-    padding: 20px 0; /* Espaço no topo e embaixo da navbar */
-    flex-wrap: wrap; /* Permite que os itens quebrem para a linha seguinte se necessário */
-}
-
-/* Estilo para os links ou botões dentro da navbar */
-/* Importando a fonte Poppins do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-/* Estilos para os links da navbar */
-nav.navbar a {
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif; /* Aplica a fonte arredondada */
-    font-size: 14px; /* Tamanho menor dos itens */
-    color: #ff0000; /* Cor do texto do link */
-    padding: 10px 20px; /* Espaçamento interno */
-    margin: 0 10px; /* Margem entre os links */
-    border: 1px solid #ff0000; /* Borda vermelha */
-    border-radius: 5px; /* Borda arredondada */
-    transition: color 0.3s ease; /* Transição suave para a cor do texto */
-    white-space: nowrap; /* Impede quebra de linha */
-    min-width: 100px; /* Garantir largura mínima */
-    position: relative; /* Necessário para o pseudo-elemento */
-    overflow: hidden; /* Impede que o efeito ultrapasse o link */
-    display: flex; /* Usando flexbox para centralizar o texto */
-    justify-content: center; /* Centraliza o texto horizontalmente */
-    align-items: center; /* Centraliza o texto verticalmente */
-    box-sizing: border-box; /* Garante que o padding e a borda sejam considerados dentro do tamanho do elemento */
-}
-
-
-/* Efeito de hover nos links dentro de nav.navbar */
-nav.navbar a:hover {
-    color: #fff; /* Cor do texto ao passar o mouse */
-}
-
-/* Pseudo-elemento para o fundo dentro dos links da navbar */
-nav.navbar a::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%; /* Preenche toda a largura do link */
-    height: 100%; /* Preenche toda a altura do link */
-    background-color: #ff0000; /* Cor de fundo vermelha */
-    transition: transform 0.3s ease; /* Transição suave para o fundo */
-    transform: scaleY(0); /* Inicialmente invisível */
-    transform-origin: bottom; /* Preenchimento de baixo para cima */
-    z-index: -1; /* Coloca o fundo atrás do texto e da borda */
-    border-radius: 5px; /* Borda arredondada no fundo */
-}
-
-/* Efeito para o pseudo-elemento (preenchimento de fundo) ao passar o mouse */
-nav.navbar a:hover::before {
-    transform: scaleY(1); /* Preenche completamente o fundo do link */
-}
-
-/* Se necessário, controle o último item de navegação */
-nav.navbar a:last-child {
-    margin-right: 0; /* Remove o espaço extra após o último item */
+/* Melhorar a aparência da coluna de "Produto", centralizando à esquerda */
+td:first-child, th:first-child {
+    text-align: left; /* Alinha o texto da coluna de "Produto" à esquerda */
 }
 
 
@@ -215,9 +225,10 @@ nav.navbar a:last-child {
     width: 400px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     animation: modalEntrada 0.4s ease-out;
-    position: relative; /* Necessário para o posicionamento absoluto do botão de fechar */
+    position: relative;
     max-width: 90%;  /* Tornar o conteúdo mais responsivo em telas menores */
-    top: 13px; /* Distância do topo */
+    top: 50%; /* Centralizar verticalmente */
+    transform: translateY(-50%); /* Ajustar para garantir centralização exata */
 }
 
 /* CSS para desabilitar a rolagem da página */
@@ -225,28 +236,19 @@ body.modal-aberta {
     overflow: hidden;
 }
 
-/* Campo de responsável (inicialmente oculto) */
-#responsavelDiv {
-    display: none; /* Inicialmente oculto */
-}
-
-#responsavelDiv.show {
-    display: block; /* Exibe quando necessário */
-}
-
 /* Estilo do botão de fechar modal */
 .fechar {
     color: #0e005f;
-    font-size: 40px; /* Tamanho maior do ícone de fechar */
+    font-size: 40px;
     font-weight: bold;
-    position: absolute; /* Para posicionar dentro do conteúdo do modal */
-    top: 10px;  /* Distância do topo */
-    right: 10px; /* Distância da direita */
+    position: absolute;
+    top: 10px;
+    right: 10px;
     cursor: pointer;
 }
 
 .fechar:hover {
-    color: #ff0000; /* Cor do ícone ao passar o mouse */
+    color: #ff0000;
 }
 
 /* Animação de entrada do modal */
@@ -258,19 +260,19 @@ body.modal-aberta {
 /* Estilos para os botões */
 button {
     color: black;
-    border: 1px solid red; /* Borda vermelha */
-    padding: 8px 16px; /* Tamanho reduzido do botão */
+    border: 1px solid red;
+    padding: 8px 16px;
     text-align: center;
-    font-size: 18px; /* Tamanho maior da fonte */
+    font-size: 18px;
     cursor: pointer;
-    border-radius: 5px; /* Bordas arredondadas */
-    position: relative; /* Necessário para o pseudo-elemento */
-    overflow: hidden; /* Garante que o efeito não ultrapasse os limites do botão */
-    background-color: transparent; /* Remove cor de fundo do botão */
-    font-family: 'Poppins', sans-serif; /* Aplica a fonte arredondada */
-    transition: color 0.3s ease; /* Transição suave para a cor do texto */
-    margin: 20px auto; /* Centraliza o botão com margem automática */
-    display: block; /* Torna o botão um bloco, o que permite centralizar */
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.3s ease;
+    margin: 20px auto;
+    display: block;
 }
 
 /* Pseudo-elemento para o preenchimento de fundo */
@@ -281,68 +283,63 @@ button::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #ff0000; /* Cor de fundo (vermelho) */
-    transition: transform 0.3s ease; /* Transição suave para o fundo */
-    transform: scaleY(0); /* Inicialmente invisível */
-    transform-origin: bottom; /* Preenchimento de baixo para cima */
-    z-index: -1; /* Coloca o fundo atrás do texto e da borda */
-    border-radius: 5px; /* Mantém a borda arredondada no fundo */
+    background-color: #ff0000;
+    transition: transform 0.3s ease;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    z-index: -1;
+    border-radius: 5px;
 }
 
 /* Efeito de hover no botão */
 button:hover {
-    color: #0e005f; /* Cor do texto ao passar o mouse */
-    border: 1px solid #0e005f; /* Cor da borda ao passar o mouse */
-}
-
-
-input, select {
-    padding: 10px;
-    margin: 8px 0;
-    width: 100%;
-    box-sizing: border-box;
+    color: #0e005f;
     border: 1px solid #0e005f;
-    border-radius: 5px;
 }
 
-/* Estilos de foco */
-input:focus, select:focus {
-    border-color: red;
-    outline: none;
-    color: rgb(0, 0, 0);
+/* Responsividade e Acessibilidade */
+@media (max-width: 768px) {
+    .modal-conteudo {
+        width: 90%;
+        padding: 20px;
+    }
+
+    button {
+        width: 100%;
+        font-size: 18px;
+        padding: 15px;
+    }
+
+    /* Ajustando o posicionamento do modal */
+    .modal-conteudo {
+        top: 20%; /* Distância do topo */
+    }
 }
 
-/* Estilo para campo numérico */
-input[type="number"] {
-    -moz-appearance: textfield;
-}
+@media (max-width: 480px) {
+    /* Tamanho do modal ajustado para telas muito pequenas */
+    .modal-conteudo {
+        width: 95%;
+        padding: 15px;
+    }
 
-/* Rótulos de inputs */
-label {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
+    button {
+        padding: 15px;
+    }
 
-/* Caixa de entrada de nome do produto */
-#search {
-    position: relative; /* Isso permite que a caixa de sugestões seja posicionada em relação a este contêiner */
-    padding: 10px;
-    width: 100%;
-    max-width: 300px;
-    margin: 20px auto;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    margin-bottom: 10px;
+    .fechar {
+        font-size: 32px;
+        top: 5px;
+        right: 5px;
+    }
 }
 
 /* Caixa de sugestões */
 #suggestions {
     position: absolute;
-    top: 50%; /* Aparece imediatamente abaixo do campo de texto */
-    left: 0; /* Alinha a caixa de sugestões à esquerda do campo de entrada */
-    width: 100%; /* Largura igual ao campo de texto */
+    top: 100%; /* Aparece logo abaixo do campo de entrada */
+    left: 0;
+    width: 100%;
     max-height: 200px;
     overflow-y: auto;
     background-color: #fff;
@@ -350,8 +347,8 @@ label {
     color: #000000;
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-    z-index: 1000; /* Garante que a caixa de sugestões fique acima de outros elementos */
-    display: none; /* Inicialmente invisível */
+    z-index: 1000;
+    display: none;
 }
 
 /* Itens da caixa de sugestões */
@@ -366,85 +363,28 @@ label {
 }
 
 .suggestion-item.selected {
-    background-color: #e0e0e0; /* Destaque do item selecionado */
+    background-color: #e0e0e0;
 }
 
 .suggestion-item.highlight {
-    background-color: #ddd; /* Altere para a cor de destaque desejada */
+    background-color: #ddd;
 }
 
-/* Responsividade e Acessibilidade */
+/* Responsividade adicional */
 @media (max-width: 768px) {
-    .container {
-        padding: 20px;
-        margin: 20px;
-    }
-
-    .search-input {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    table {
-        font-size: 0.9rem;
-    }
-
     #suggestions {
         width: 100%;
         left: 0;
     }
-
-    .botao-voltar svg {
-        width: 20px;
-        height: 20px;
-    }
-
-    /* Modificando a posição do botão de voltar */
-    .botao-voltar {
-        top: 10px;
-        left: 10px;
-    }
-
-    /* Modal e botões também se adaptam */
-    .modal-conteudo {
-        width: 90%;
-        padding: 20px;
-    }
-
-    button {
-        width: 100%;
-        font-size: 18px;
-        padding: 15px;
-    }
 }
 
-/* Para telas menores que 480px (ex: smartphones verticais) */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 1.5rem;
-    }
+footer {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 0.9em;
+    color: #666;
+}
 
-    table {
-        font-size: 0.8rem;
-    }
-
-    .search-input {
-        max-width: 100%;
-    }
-
-    /* Aumentando a área clicável do botão de fechar no modal */
-    .fechar {
-        font-size: 32px;
-        top: 5px;
-        right: 5px;
-    }
-
-    .modal-conteudo {
-        width: 95%;
-        padding: 15px;
-    }
-
-    button {
-        padding: 15px;
-    }
+footer p {
+    margin: 5px 0;
 }
