@@ -4,7 +4,7 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const app = express();
-
+require('dotenv').config();
 const port = process.env.PORT || 3000;
 const secretKey = process.env.SECRET_KEY;
 
