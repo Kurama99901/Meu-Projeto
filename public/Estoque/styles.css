@@ -225,10 +225,9 @@ td:first-child, th:first-child {
     width: 400px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     animation: modalEntrada 0.4s ease-out;
-    position: relative;
+    position: relative; /* Necessário para o posicionamento absoluto do botão de fechar */
     max-width: 90%;  /* Tornar o conteúdo mais responsivo em telas menores */
-    top: 50%; /* Centralizar verticalmente */
-    transform: translateY(-50%); /* Ajustar para garantir centralização exata */
+    top: 13px; /* Distância do topo */
 }
 
 /* CSS para desabilitar a rolagem da página */
@@ -236,19 +235,28 @@ body.modal-aberta {
     overflow: hidden;
 }
 
+/* Campo de responsável (inicialmente oculto) */
+#responsavelDiv {
+    display: none; /* Inicialmente oculto */
+}
+
+#responsavelDiv.show {
+    display: block; /* Exibe quando necessário */
+}
+
 /* Estilo do botão de fechar modal */
 .fechar {
     color: #0e005f;
-    font-size: 40px;
+    font-size: 40px; /* Tamanho maior do ícone de fechar */
     font-weight: bold;
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    position: absolute; /* Para posicionar dentro do conteúdo do modal */
+    top: 10px;  /* Distância do topo */
+    right: 10px; /* Distância da direita */
     cursor: pointer;
 }
 
 .fechar:hover {
-    color: #ff0000;
+    color: #ff0000; /* Cor do ícone ao passar o mouse */
 }
 
 /* Animação de entrada do modal */
@@ -260,19 +268,19 @@ body.modal-aberta {
 /* Estilos para os botões */
 button {
     color: black;
-    border: 1px solid red;
-    padding: 8px 16px;
+    border: 1px solid red; /* Borda vermelha */
+    padding: 8px 16px; /* Tamanho reduzido do botão */
     text-align: center;
-    font-size: 18px;
+    font-size: 18px; /* Tamanho maior da fonte */
     cursor: pointer;
-    border-radius: 5px;
-    position: relative;
-    overflow: hidden;
-    background-color: transparent;
-    font-family: 'Poppins', sans-serif;
-    transition: color 0.3s ease;
-    margin: 20px auto;
-    display: block;
+    border-radius: 5px; /* Bordas arredondadas */
+    position: relative; /* Necessário para o pseudo-elemento */
+    overflow: hidden; /* Garante que o efeito não ultrapasse os limites do botão */
+    background-color: transparent; /* Remove cor de fundo do botão */
+    font-family: 'Poppins', sans-serif; /* Aplica a fonte arredondada */
+    transition: color 0.3s ease; /* Transição suave para a cor do texto */
+    margin: 20px auto; /* Centraliza o botão com margem automática */
+    display: block; /* Torna o botão um bloco, o que permite centralizar */
 }
 
 /* Pseudo-elemento para o preenchimento de fundo */
@@ -283,61 +291,70 @@ button::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #ff0000;
-    transition: transform 0.3s ease;
-    transform: scaleY(0);
-    transform-origin: bottom;
-    z-index: -1;
-    border-radius: 5px;
+    background-color: #ff0000; /* Cor de fundo (vermelho) */
+    transition: transform 0.3s ease; /* Transição suave para o fundo */
+    transform: scaleY(0); /* Inicialmente invisível */
+    transform-origin: bottom; /* Preenchimento de baixo para cima */
+    z-index: -1; /* Coloca o fundo atrás do texto e da borda */
+    border-radius: 5px; /* Mantém a borda arredondada no fundo */
 }
 
 /* Efeito de hover no botão */
 button:hover {
-    color: #0e005f;
+    color: #0e005f; /* Cor do texto ao passar o mouse */
+    border: 1px solid #0e005f; /* Cor da borda ao passar o mouse */
+}
+input {
+    padding: 10px;
+    margin: 8px 0;
+    width: 100%;
+    box-sizing: border-box;
     border: 1px solid #0e005f;
+    border-radius: 5px;
+    position: relative; /* Necessário para o posicionamento da caixa de sugestões */
 }
 
-/* Responsividade e Acessibilidade */
-@media (max-width: 768px) {
-    .modal-conteudo {
-        width: 90%;
-        padding: 20px;
-    }
-
-    button {
-        width: 100%;
-        font-size: 18px;
-        padding: 15px;
-    }
-
-    /* Ajustando o posicionamento do modal */
-    .modal-conteudo {
-        top: 20%; /* Distância do topo */
-    }
+input, select {
+    padding: 10px;
+    margin: 8px 0;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #0e005f;
+    border-radius: 5px;
+    
+}
+/* Ajuste de margem para garantir que a caixa de sugestões não fique em cima do input */
+input:focus + #suggestions {
+    top: 100%; /* Aparece abaixo do campo de entrada */
+    z-index: 1001; /* Garante que a caixa de sugestões fique acima de outros elementos */
 }
 
-@media (max-width: 480px) {
-    /* Tamanho do modal ajustado para telas muito pequenas */
-    .modal-conteudo {
-        width: 95%;
-        padding: 15px;
-    }
-
-    button {
-        padding: 15px;
-    }
-
-    .fechar {
-        font-size: 32px;
-        top: 5px;
-        right: 5px;
-    }
+/* Ajuste na distância da caixa de sugestões para que ela não sobreponha o input */
+input:focus {
+    z-index: 1001; /* Garante que o input fique acima da caixa de sugestões */
+}
+/* Estilos de foco */
+input:focus, select:focus {
+    border-color: red;
+    outline: none;
+    color: rgb(0, 0, 0);
 }
 
-/* Caixa de sugestões */
+/* Estilo para campo numérico */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Rótulos de inputs */
+label {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
 #suggestions {
     position: absolute;
-    top: 100%; /* Aparece logo abaixo do campo de entrada */
+    top: 100%; /* Aparece imediatamente abaixo do campo de texto */
     left: 0;
     width: 100%;
     max-height: 200px;
@@ -347,8 +364,15 @@ button:hover {
     color: #000000;
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
-    display: none;
+    z-index: 1000; /* Garante que a caixa de sugestões fique acima de outros elementos */
+    display: none; /* Inicialmente invisível */
+}
+/* Responsividade para garantir que a caixa de sugestões não sobreponha o input */
+@media (max-width: 768px) {
+    #suggestions {
+        width: 100%;
+        left: 0;
+    }
 }
 
 /* Itens da caixa de sugestões */
@@ -363,21 +387,57 @@ button:hover {
 }
 
 .suggestion-item.selected {
-    background-color: #e0e0e0;
+    background-color: #e0e0e0; /* Destaque do item selecionado */
 }
 
 .suggestion-item.highlight {
-    background-color: #ddd;
+    background-color: #ddd; /* Altere para a cor de destaque desejada */
 }
 
-/* Responsividade adicional */
+/* Responsividade e Acessibilidade */
 @media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .search-input {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
     #suggestions {
         width: 100%;
         left: 0;
     }
-}
 
+    .botao-voltar svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Modificando a posição do botão de voltar */
+    .botao-voltar {
+        top: 10px;
+        left: 10px;
+    }
+
+    /* Modal e botões também se adaptam */
+    .modal-conteudo {
+        width: 90%;
+        padding: 20px;
+    }
+
+    button {
+        width: 100%;
+        font-size: 18px;
+        padding: 15px;
+    }
+}
 footer {
     text-align: center;
     margin-top: 60px;
@@ -387,4 +447,35 @@ footer {
 
 footer p {
     margin: 5px 0;
+}
+
+/* Para telas menores que 480px (ex: smartphones verticais) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    table {
+        font-size: 0.8rem;
+    }
+
+    .search-input {
+        max-width: 100%;
+    }
+
+    /* Aumentando a área clicável do botão de fechar no modal */
+    .fechar {
+        font-size: 32px;
+        top: 5px;
+        right: 5px;
+    }
+
+    .modal-conteudo {
+        width: 95%;
+        padding: 15px;
+    }
+
+    button {
+        padding: 15px;
+    }
 }
