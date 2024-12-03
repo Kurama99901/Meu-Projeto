@@ -9,7 +9,7 @@ const secretKey = process.env.SECRET_KEY;
 
 app.use(cors()); // Permite todas as origens
 // Ou para permitir apenas uma origem específica
-// app.use(cors({ origin: 'https://estoquejmbrasilia.onrender.com' }));
+app.use(cors({ origin: 'https://estoquejmbrasilia.onrender.com' }));
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
