@@ -1,6 +1,5 @@
-require('dotenv').config(); // Apenas no ambiente local
-
 const express = require('express');
+const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const app = express();
@@ -8,6 +7,9 @@ require('dotenv').config();
 const port = process.env.PORT || 3000;
 const secretKey = process.env.SECRET_KEY;
 
+app.use(cors()); // Permite todas as origens
+// Ou para permitir apenas uma origem específica
+// app.use(cors({ origin: 'https://estoquejmbrasilia.onrender.com' }));
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
