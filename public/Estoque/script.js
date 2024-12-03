@@ -19,49 +19,40 @@ document.addEventListener("DOMContentLoaded", function () {
     let suggestionItems = []; // Variável para armazenar as sugestões geradas
     let currentIndex = -1; // Índice da sugestão selecionada
 
-    // Função para carregar o estoque de um arquivo JSON
-    async function loadEstoqueData() {
+     // Função para carregar o estoque do servidor
+     async function loadEstoqueData() {
         try {
-            const response = await fetch('estoque.json');
+            const response = await fetch('http://localhost:3000/estoque');
             const data = await response.json();
-            estoqueData = data.estoque;
-
-            let estoqueDataCarregado = loadEstoqueSalvo();
-            if (estoqueDataCarregado !== null && estoqueDataCarregado !== estoqueData)
-                estoqueData = estoqueDataCarregado;
-
-            renderTable(estoqueData); // Renderiza a tabela com os dados carregados
+            estoqueData = data.estoque || [];
+            renderTable(estoqueData);
         } catch (error) {
-            console.error("Erro ao carregar o arquivo JSON:", error);
+            console.error("Erro ao carregar os dados do servidor:", error);
         }
     }
 
-    function loadEstoqueSalvo() {
-        let estoqueCarregado = localStorage.getItem("estoque");
-        if (estoqueCarregado)
-            return JSON.parse(estoqueCarregado);
-        return null;
-    }
-
+    // Função para salvar o estoque no servidor
     function saveEstoqueData() {
-        // Envia os dados do estoque para o servidor
         fetch('http://localhost:3000/salvar-estoque', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',  // Definindo o tipo de conteúdo como JSON
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify(estoqueData)  // Convertendo os dados do estoque para JSON
+            body: JSON.stringify(estoqueData)
         })
-        .then(response => response.json())  // Aguardando a resposta JSON do servidor
-        .then(data => {
-            console.log('Dados salvos no servidor:', data.message);
-        })
-        .catch(error => {
-            console.error('Erro ao salvar no servidor:', error);
-        });
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao salvar os dados');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Dados salvos no servidor:', data.message);
+            })
+            .catch(error => {
+                console.error('Erro ao salvar no servidor:', error);
+            });
     }
-    
-    
 
     function renderTable(items) {
         estoqueDiv.innerHTML = '';
@@ -177,10 +168,10 @@ codSistemaInput.addEventListener('input', function () {
         const operacao = operacaoSelect.value;
         const produto = produtoInput.value;
         const quantidade = parseInt(quantidadeInput.value, 10);  // Quantidade fornecida
-        const codSistema = document.getElementById("codSistema").value;
-        const local = document.getElementById("local").value;
+        const codSistema = codSistemaInput.value;
+        const local = localInput.value;
         const responsavel = responsavelInput.value;
-
+    
         // Verificando se os campos obrigatórios foram preenchidos de acordo com a operação
         if (operacao === "retirada" || operacao === "devolucao") {
             if (!produto || !quantidade || !responsavel) {
@@ -190,6 +181,13 @@ codSistemaInput.addEventListener('input', function () {
         } else if (operacao === "novo") {
             if (!produto || !quantidade || !codSistema || !local) {
                 alert("Por favor, preencha todos os campos para o novo produto.");
+                return;
+            }
+    
+            // Validação de código do sistema duplicado
+            const codigoExistente = estoqueData.some(item => item.codSistema === codSistema);
+            if (codigoExistente) {
+                alert("Erro: Já existe um produto com este código de sistema no estoque.");
                 return;
             }
         } else if (operacao === "chegada") {
@@ -203,16 +201,16 @@ codSistemaInput.addEventListener('input', function () {
                 return;
             }
         }
-
+    
         if (isNaN(quantidade) || quantidade <= 0) {
             if (operacao !== "exclusao") {  // Ignorar a validação de quantidade para exclusão
                 alert("Por favor, insira uma quantidade válida (maior que 0).");
                 return;
             }
         }
-
+    
         let item = estoqueData.find(item => item.produto.toLowerCase() === produto.toLowerCase());
-
+    
         if (operacao === "retirada" || operacao === "devolucao") {
             if (item) {
                 if (operacao === "retirada") {
@@ -226,6 +224,7 @@ codSistemaInput.addEventListener('input', function () {
                 return;
             }
         } else if (operacao === "novo") {
+            // Adiciona um novo item ao estoque
             estoqueData.push({ produto, estoqueFinal: quantidade, codSistema, local });
             saveEstoqueData();
         } else if (operacao === "exclusao") {
@@ -239,10 +238,11 @@ codSistemaInput.addEventListener('input', function () {
                 alert("Produto não encontrado no estoque.");
             }
         }
-
+    
         renderTable(estoqueData);
         closeModal();
     }
+    
 
     function closeModal() {
         modal.style.display = 'none';
