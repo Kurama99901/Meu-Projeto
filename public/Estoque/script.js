@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let estoqueData = []; // Variável para armazenar o estoque carregado
     let suggestionItems = []; // Variável para armazenar as sugestões geradas
     let currentIndex = -1; // Índice da sugestão selecionada
+    require('dotenv').config();
 
      // Função para carregar o estoque do servidor
      async function loadEstoqueData() {
