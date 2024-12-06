@@ -1,12 +1,18 @@
 {
   "estoque": [
     {
+      "produto": "ABRACADEIRA ESCAPE TOYOTA 7FG",
+      "estoqueFinal": 1,
+      "codSistema": "011214",
+      "local": "PRT1,A2,CX1"
+    },
+    {
       "codSistema": "000168",
       "produto": "ADITIVO DE ARREFECIMENTO P/ RADIADOR",
       "estoqueInicial": "4",
       "entradas": "2",
       "saidas": "0",
-      "estoqueFinal": 21,
+      "estoqueFinal": 26,
       "codigoNovo": ""
     },
     {
@@ -15,8 +21,14 @@
       "estoqueInicial": "58",
       "entradas": "0",
       "saidas": "2",
-      "estoqueFinal": "56",
+      "estoqueFinal": 54,
       "codigoNovo": ""
+    },
+    {
+      "produto": "ALAVANCA SAPATA DE FREIO TOY. 8FGJ3.5",
+      "estoqueFinal": 0,
+      "codSistema": "020215",
+      "local": "INDEFINIDO"
     },
     {
       "codSistema": "020959",
@@ -126,7 +138,7 @@
       "estoqueInicial": "6",
       "entradas": "0",
       "saidas": "0",
-      "estoqueFinal": "6",
+      "estoqueFinal": 2,
       "codigoNovo": ""
     },
     {
@@ -147,6 +159,12 @@
       "estoqueFinal": "6",
       "codigoNovo": "",
       "local": ""
+    },
+    {
+      "produto": "CABO REGULADOR FREIO TOYOTA 3.5 8FG",
+      "estoqueFinal": 0,
+      "codSistema": "007095",
+      "local": "INDEFINIDO"
     },
     {
       "codSistema": "000036",
@@ -196,6 +214,18 @@
       "codigoNovo": ""
     },
     {
+      "produto": "CHAVE DE SETA TOYOTA 8FG GENUINO",
+      "estoqueFinal": 2,
+      "codSistema": "015909",
+      "local": "PRT1,A2,CX11"
+    },
+    {
+      "produto": "CHAVE SELETORA MARCHA FRENTE/RE TOY. 8FG GENUINO",
+      "estoqueFinal": 2,
+      "codSistema": "015910",
+      "local": "PRT1,A2,CX18"
+    },
+    {
       "codSistema": "000060",
       "produto": "CILINDRO MESTRE TOYOTA 7/8 FG",
       "estoqueInicial": "1",
@@ -228,7 +258,7 @@
       "estoqueInicial": "4",
       "entradas": "0",
       "saidas": "0",
-      "estoqueFinal": "4",
+      "estoqueFinal": 3,
       "codigoNovo": ""
     },
     {
@@ -237,8 +267,14 @@
       "estoqueInicial": "5",
       "entradas": "0",
       "saidas": "0",
-      "estoqueFinal": "5",
+      "estoqueFinal": 1,
       "codigoNovo": ""
+    },
+    {
+      "produto": "COLA SILICONE BLACK",
+      "estoqueFinal": 3,
+      "codSistema": "001663",
+      "local": "PRT1,A2,CX8"
     },
     {
       "codSistema": "014805",
@@ -249,6 +285,42 @@
       "estoqueFinal": "4",
       "codigoNovo": "",
       "local": ""
+    },
+    {
+      "produto": "CONECTOR BATERIA 160A REMA FEMEA",
+      "estoqueFinal": 2,
+      "codSistema": "012726",
+      "local": "INDEFNIDO"
+    },
+    {
+      "produto": "CONECTOR BATERIA 160A REMA MACHO",
+      "estoqueFinal": 2,
+      "codSistema": "012725",
+      "local": "INDEFINIDO"
+    },
+    {
+      "produto": "CONECTOR BATERIA 320A DIN REMA FEMEA",
+      "estoqueFinal": 2,
+      "codSistema": "012872",
+      "local": "INDEFINIDO"
+    },
+    {
+      "produto": "CONECTOR BATERIA 320A DIN REMA MACHO",
+      "estoqueFinal": 2,
+      "codSistema": "011118",
+      "local": "INDEFINIDO"
+    },
+    {
+      "produto": "CONECTOR BATERIA 80A REMA FEMEA",
+      "estoqueFinal": 2,
+      "codSistema": "012724",
+      "local": "INDEFINIDO"
+    },
+    {
+      "produto": "CONECTOR BATERIA 80A REMA MACHO",
+      "estoqueFinal": 2,
+      "codSistema": "012723",
+      "local": "INDEFINIDO"
     },
     {
       "codSistema": "016449",
@@ -329,8 +401,14 @@
       "estoqueInicial": "15",
       "entradas": "0",
       "saidas": "0",
-      "estoqueFinal": "15",
+      "estoqueFinal": 6,
       "codigoNovo": ""
+    },
+    {
+      "produto": "DESENGRIPANTE TOY. 250ML/170G GENUINA",
+      "estoqueFinal": 30,
+      "codSistema": "021735",
+      "local": "PRT4,A3"
     },
     {
       "codSistema": "000349",
@@ -359,6 +437,12 @@
       "estoqueFinal": "34",
       "codigoNovo": "",
       "local": ""
+    },
+    {
+      "produto": "ENGATE RAPIDO FEMEA SAIDA RETA",
+      "estoqueFinal": 6,
+      "codSistema": "001806",
+      "local": "PRT2,A1,CX4"
     },
     {
       "codSistema": "009480",
@@ -431,7 +515,7 @@
       "estoqueInicial": "4",
       "entradas": "0",
       "saidas": "0",
-      "estoqueFinal": "4",
+      "estoqueFinal": 3,
       "codigoNovo": ""
     },
     {
@@ -502,15 +586,6 @@
       "codigoNovo": ""
     },
     {
-      "codSistema": "001482",
-      "produto": "FILTRO OLEO MOTOR TOY. 7FGK40",
-      "estoqueInicial": "5",
-      "entradas": "0",
-      "saidas": "1",
-      "estoqueFinal": "4",
-      "codigoNovo": ""
-    },
-    {
       "codSistema": "000029",
       "produto": "FILTRO TRANSMISSAO TOY.",
       "estoqueInicial": "17",
@@ -526,7 +601,7 @@
       "estoqueInicial": "18",
       "entradas": "0",
       "saidas": "2",
-      "estoqueFinal": "16",
+      "estoqueFinal": 14,
       "codigoNovo": "",
       "local": ""
     },
@@ -581,9 +656,15 @@
       "estoqueInicial": "21",
       "entradas": "",
       "saidas": "1",
-      "estoqueFinal": "20",
+      "estoqueFinal": 12,
       "codigoNovo": "021734",
       "local": ""
+    },
+    {
+      "produto": "GRAXA LIQUIDA TOY.250ML/170G GENUINA",
+      "estoqueFinal": 30,
+      "codSistema": "021734",
+      "local": "PRT4,A3"
     },
     {
       "codSistema": "000936",
@@ -611,6 +692,12 @@
       "saidas": "0",
       "estoqueFinal": "0",
       "codigoNovo": ""
+    },
+    {
+      "produto": "HELICE RADIADOR TOYOTA 8FG REFORCADA",
+      "estoqueFinal": 1,
+      "codSistema": "016169",
+      "local": "CAIXA"
     },
     {
       "codSistema": "015856",
@@ -767,9 +854,15 @@
       "estoqueInicial": "38",
       "entradas": "",
       "saidas": "",
-      "estoqueFinal": "38",
+      "estoqueFinal": 11,
       "codigoNovo": "",
       "local": ""
+    },
+    {
+      "produto": "LIMPA CONTATO TOY. 100ML/60G",
+      "estoqueFinal": 31,
+      "codSistema": "021736",
+      "local": "PRT4,A3"
     },
     {
       "codSistema": "011202",
@@ -832,18 +925,15 @@
       "estoqueInicial": "18",
       "entradas": "",
       "saidas": "",
-      "estoqueFinal": "18",
+      "estoqueFinal": 8,
       "codigoNovo": "021735",
       "local": ""
     },
     {
+      "produto": "OLEO DIFERENCIAL TOY. SUPER HD 1L",
+      "estoqueFinal": 65,
       "codSistema": "016478",
-      "produto": "OLEO DIFERENCIAL TOY. GENUINO",
-      "estoqueInicial": "91",
-      "entradas": "0",
-      "saidas": "0",
-      "estoqueFinal": "91",
-      "codigoNovo": ""
+      "local": "PRT5,PRT6,A4"
     },
     {
       "codSistema": "014597",
@@ -851,7 +941,7 @@
       "estoqueInicial": "21",
       "entradas": "0",
       "saidas": "0",
-      "estoqueFinal": "21",
+      "estoqueFinal": "212",
       "codigoNovo": "",
       "local": ""
     },
@@ -865,21 +955,16 @@
       "codigoNovo": ""
     },
     {
-      "codSistema": "014596",
       "produto": "OLEO MOTOR TOY. SUPER 1L",
-      "estoqueInicial": "58",
-      "entradas": "0",
-      "saidas": "5",
-      "estoqueFinal": "53",
-      "codigoNovo": "",
-      "local": ""
+      "estoqueFinal": 59,
+      "codSistema": "014596",
+      "local": "PRT6,A1,A2"
     },
     {
-      "codSistema": "014595",
       "produto": "OLEO TRANS. TOY. SUPER ATF 1L",
-      "estoqueInicial": "73",
-      "entradas": "",
-      "saidas": "0"
+      "estoqueFinal": 110,
+      "codSistema": "014595",
+      "local": "PRT5,A1,A2"
     },
     {
       "codSistema": "007682",
@@ -959,7 +1044,7 @@
       "estoqueInicial": "4",
       "entradas": "0",
       "saidas": "0",
-      "estoqueFinal": "4",
+      "estoqueFinal": 1,
       "codigoNovo": ""
     },
     {
@@ -968,7 +1053,7 @@
       "estoqueInicial": "3",
       "entradas": "0",
       "saidas": "0",
-      "estoqueFinal": "3",
+      "estoqueFinal": 1,
       "codigoNovo": ""
     },
     {
@@ -980,6 +1065,12 @@
       "estoqueFinal": "10",
       "codigoNovo": "",
       "local": ""
+    },
+    {
+      "produto": "REGULADOR SAPATA DE FREIO TOY.8FGJ3.5",
+      "estoqueFinal": 0,
+      "codSistema": "018938",
+      "local": "INDEFINIDO"
     },
     {
       "codSistema": "006111",
@@ -1153,6 +1244,12 @@
       "codigoNovo": ""
     },
     {
+      "produto": "SAPATA DE FREIO TOYOTA 3.5 8FGJ",
+      "estoqueFinal": 4,
+      "codSistema": "008814",
+      "local": "INDEFINIDO"
+    },
+    {
       "codSistema": "000047",
       "produto": "SAPATA FREIO TOY. 7/8 FG 2.5 GENUINA",
       "estoqueInicial": "5",
@@ -1171,24 +1268,6 @@
       "codigoNovo": ""
     },
     {
-      "codSistema": "009147",
-      "produto": "SENSOR BANCO TOY. 8FG",
-      "estoqueInicial": "3",
-      "entradas": "0",
-      "saidas": "0",
-      "estoqueFinal": "3",
-      "codigoNovo": ""
-    },
-    {
-      "codSistema": "012473",
-      "produto": "SENSOR BANCO TOY. 8FG TIPO CONTACTOR",
-      "estoqueInicial": "2",
-      "entradas": "0",
-      "saidas": "0",
-      "estoqueFinal": "2",
-      "codigoNovo": ""
-    },
-    {
       "codSistema": "017008",
       "produto": "SENSOR DIRECAO TOYOTA RRE160H",
       "estoqueInicial": "10",
@@ -1203,7 +1282,7 @@
       "estoqueInicial": "3",
       "entradas": "0",
       "saidas": "0",
-      "estoqueFinal": "3",
+      "estoqueFinal": "35",
       "codigoNovo": ""
     },
     {
@@ -1260,6 +1339,12 @@
       "estoqueFinal": "12",
       "codigoNovo": "",
       "local": ""
+    },
+    {
+      "produto": "SILICONE SPRAY TOY.100ML/60G",
+      "estoqueFinal": 29,
+      "codSistema": "021733",
+      "local": "PRT4,A3"
     },
     {
       "codSistema": "017143",
@@ -1426,6 +1511,12 @@
       "estoqueFinal": "33",
       "codigoNovo": "",
       "local": ""
+    },
+    {
+      "produto": "REGULADOR ALTERNADOR",
+      "estoqueFinal": 2,
+      "codSistema": "007663",
+      "local": "PRT1,A3,CX4"
     }
   ]
 }
