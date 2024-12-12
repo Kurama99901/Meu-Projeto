@@ -22,14 +22,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const apiUrl = 'http://localhost:3000';
 
    // Função para carregar o estoque do servidor
-   async function loadEstoqueData() {
+async function loadEstoqueData() {
     try {
         const response = await fetch(`${apiUrl}/estoque`);
         const data = await response.json();
 
-        // Ajustar para trabalhar com o array diretamente
-        if (Array.isArray(data)) {
-            estoqueData = data; // Atualiza o array de dados
+        // Verifica se o formato de resposta contém a chave "estoque"
+        if (data && Array.isArray(data.estoque)) {
+            estoqueData = data.estoque; // Atualiza o array de dados
             renderTable(estoqueData);  // Renderiza a tabela com os dados
         } else {
             console.error("Formato de resposta inesperado:", data);
@@ -38,8 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Erro ao carregar os dados do servidor:", error);
     }
 }
-
-
 
    // Função para salvar o estoque no servidor
    function saveEstoqueData() {
