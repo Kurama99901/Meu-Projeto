@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let suggestionItems = []; // Variável para armazenar as sugestões geradas
     let currentIndex = -1; // Índice da sugestão selecionada
    // URL da API
-  // const apiUrl = 'https://estoquejmbrasilia.onrender.com'; // URL pública do servidor
   const apiUrl = 'http://localhost:3000';
 
    // Função para carregar o estoque do servidor
