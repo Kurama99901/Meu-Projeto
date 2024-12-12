@@ -53,35 +53,43 @@ app.get('/', (req, res) => {
 app.post('/salvar-estoque', (req, res) => {
     const estoqueData = req.body;
 
-    // Prepara o comando para inserção no banco de dados
+    if (!Array.isArray(estoqueData)) {
+        return res.status(400).json({ message: 'Dados inválidos: esperado um array.' });
+    }
+
     const stmt = db.prepare("INSERT INTO produtos (produto, estoqueFinal, codSistema, local) VALUES (?, ?, ?, ?)");
-    
+    let erroOcorreu = false;
+
     estoqueData.forEach(item => {
         stmt.run(item.produto, item.estoqueFinal, item.codSistema, item.local, (err) => {
             if (err) {
                 console.error('Erro ao salvar no banco de dados:', err);
-                return res.status(500).json({ message: 'Erro ao salvar o estoque no banco de dados.' });
+                erroOcorreu = true;
             }
         });
     });
 
     stmt.finalize(() => {
+        if (erroOcorreu) {
+            return res.status(500).json({ message: 'Alguns itens falharam ao salvar no banco de dados.' });
+        }
         console.log('Dados do estoque salvos com sucesso!');
         res.json({ message: 'Estoque salvo com sucesso!' });
     });
 });
 
+
 // Rota GET para obter os dados de estoque do banco de dados
 app.get('/estoque', (req, res) => {
-    // Consulta os produtos no banco de dados
     db.all("SELECT * FROM produtos", [], (err, rows) => {
         if (err) {
             console.error('Erro ao carregar dados do banco de dados:', err);
             return res.status(500).json({ message: 'Erro ao carregar o estoque.' });
         }
-        res.json(rows);
+        res.json({ estoque: rows }); // Retorna com a chave "estoque"
     });
 });
+
 
 // Inicia o servidor
 app.listen(port, () => {

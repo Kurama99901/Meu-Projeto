@@ -23,16 +23,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
    // Função para carregar o estoque do servidor
    async function loadEstoqueData() {
-       try {
-           const response = await fetch(`${apiUrl}/estoque`);
-           const data = await response.json();
-           estoqueData = data.estoque || [];
-           renderTable(estoqueData);
-       } catch (error) {
-           console.error("Erro ao carregar os dados do servidor:", error);
-       }
-   }
-   
+    try {
+        const response = await fetch(`${apiUrl}/estoque`);
+        const data = await response.json();
+
+        // Ajustar para trabalhar com o array diretamente
+        if (Array.isArray(data)) {
+            estoqueData = data; // Atualiza o array de dados
+            renderTable(estoqueData);  // Renderiza a tabela com os dados
+        } else {
+            console.error("Formato de resposta inesperado:", data);
+        }
+    } catch (error) {
+        console.error("Erro ao carregar os dados do servidor:", error);
+    }
+}
+
+
+
    // Função para salvar o estoque no servidor
    function saveEstoqueData() {
        fetch(`${apiUrl}/salvar-estoque`, {
