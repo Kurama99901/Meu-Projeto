@@ -63,26 +63,30 @@ app.post('/salvar-estoque', (req, res) => {
         return res.status(400).json({ message: 'Dados inválidos: esperado um array.' });
     }
 
-    const stmt = db.prepare(`
-        INSERT INTO produtos (produto, estoqueFinal, codSistema, local)
-        VALUES (?, ?, ?, ?)
-        ON CONFLICT(codSistema) DO UPDATE SET
-            produto = ?,
-            estoqueFinal = ?,
-            local = ?
-    `);
-
-    let erroOcorreu = false;
-
     db.serialize(() => {
-        estoqueData.forEach(item => {
+        const stmt = db.prepare(`
+            INSERT INTO produtos (produto, estoqueFinal, codSistema, local)
+            VALUES (?, ?, ?, ?)
+            ON CONFLICT(codSistema) DO UPDATE SET
+                produto = excluded.produto,
+                estoqueFinal = excluded.estoqueFinal,
+                local = excluded.local
+        `, (err) => {
+            if (err) {
+                console.error('Erro ao preparar a declaração:', err);
+                return res.status(500).json({ message: 'Erro interno do servidor.' });
+            }
+        });
+
+        estoqueData.forEach((item) => {
             stmt.run(
-                item.produto, item.estoqueFinal, item.codSistema, item.local, // Valores para INSERT
-                item.produto, item.estoqueFinal, item.local, // Valores para UPDATE
+                item.produto,
+                item.estoqueFinal,
+                item.codSistema,
+                item.local,
                 (err) => {
                     if (err) {
-                        console.error('Erro ao salvar no banco de dados para item:', item, err);
-                        erroOcorreu = true;
+                        console.error('Erro ao salvar item:', item, err);
                     }
                 }
             );
@@ -90,15 +94,10 @@ app.post('/salvar-estoque', (req, res) => {
 
         stmt.finalize((err) => {
             if (err) {
-                console.error('Erro ao finalizar a transação:', err);
-                return res.status(500).json({ message: 'Erro ao salvar os dados do estoque.' });
+                console.error('Erro ao finalizar a declaração:', err);
+                return res.status(500).json({ message: 'Erro ao finalizar a operação.' });
             }
-
-            if (erroOcorreu) {
-                return res.status(500).json({ message: 'Alguns itens falharam ao salvar no banco de dados.' });
-            }
-
-            console.log('Dados do estoque salvos com sucesso!');
+            console.log('Dados salvos com sucesso!');
             res.json({ message: 'Estoque salvo com sucesso!' });
         });
     });
