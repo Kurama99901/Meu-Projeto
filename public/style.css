@@ -121,8 +121,202 @@ footer {
     background-color: #333;
     z-index: 1;
 }
+/* Estilo do modal */
+.modal {
+    display: none;  /* Inicialmente o modal está escondido */
+    position: fixed; /* Fica fixo na tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo opaco */
+    z-index: 1000; /* Garante que o modal fique acima de outros elementos */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centraliza o modal na tela */
+}
 
-/* Responsividade */
+/* Conteúdo do modal */
+.modal-conteudo {
+    position: relative;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 1200px;  /* Aumenta o tamanho máximo do modal */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    overflow-y: auto; /* Permite rolagem se o conteúdo for muito longo */
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6; /* Aumenta a legibilidade dos textos */
+    max-height: 90%; /* Limita a altura para garantir que o modal não ultrapasse a tela */
+}
+
+/* Título do modal */
+.modal-conteudo h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+/* Estilo da tabela no modal */
+.modal-conteudo table {
+    width: 100%;
+    max-width: 100%; /* Garante que a tabela não ultrapasse a largura do modal */
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave para a tabela */
+    border-radius: 8px; /* Bordas arredondadas para um visual mais suave */
+    overflow-x: auto; /* Permite rolar horizontalmente se necessário */
+}
+
+/* Estilo das células da tabela */
+.modal-conteudo th, .modal-conteudo td {
+    padding: 15px 20px; /* Maior espaçamento nas células para mais clareza */
+    text-align: left;
+    font-size: 16px; /* Tamanho da fonte adequado */
+    border: 1px solid #ddd; /* Borda mais suave */
+    transition: background-color 0.3s ease; /* Efeito de transição nas células */
+    word-wrap: break-word; /* Quebra palavras longas que não cabem */
+    text-transform: uppercase; /* Aplica o maiúsculo a todas as células */
+}
+
+/* Estilo das células do cabeçalho */
+.modal-conteudo th {
+    background-color: #f4f6f9; /* Cor mais suave para o cabeçalho */
+    color: #4c5c68; /* Cor de texto mais suave */
+    font-weight: 600;
+    text-transform: uppercase; /* Letras maiúsculas para um visual mais formal */
+    letter-spacing: 1px; /* Espaçamento entre letras para maior clareza */
+}
+
+/* Estilo das células de dados */
+.modal-conteudo td {
+    background-color: #ffffff; /* Branco para o conteúdo */
+    color: #5a5a5a; /* Cor do texto mais neutra */
+}
+
+/* Cores alternadas nas linhas para facilitar a leitura */
+.modal-conteudo tr:nth-child(even) td {
+    background-color: #fafbfc; /* Cor levemente cinza para as linhas pares */
+}
+
+/* Efeito de destaque quando o mouse passa sobre uma célula */
+.modal-conteudo td:hover {
+    background-color: #f1f1f1; /* Leve destaque nas células ao passar o mouse */
+}
+
+/* Estilo para a última linha da tabela */
+.modal-conteudo tr:last-child td {
+    border-bottom: 2px solid #ddd; /* Borda mais forte na última linha */
+}
+
+/* Botão de fechar no modal */
+.fechar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+    background-color: transparent;
+    border: none;
+    padding: 5px;
+}
+
+/* Melhorando o visual do botão de fechar */
+.fechar:hover {
+    color: #ff0000;
+    transform: scale(1.1);
+}
+
+/* Adiciona um efeito de transição ao botão de fechar */
+.fechar:focus {
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+/* Filtro */
+
+/* Estilo do ícone de filtro */
+.btn-filtro {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilo do formulário de filtro */
+.filtros {
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filtros div {
+    margin-bottom: 10px;
+}
+
+.filtros label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.filtros input, .filtros select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Estilo do botão de filtro */
+#btnAplicarFiltro {
+    position: relative;
+    padding: 10px 20px;
+    background-color: transparent; /* Fundo transparente */
+    color: #333; /* Cor do texto */
+    border: 1px solid #ff0000; /* Cor da borda */
+    font-size: 16px; /* Tamanho do texto */
+    font-weight: bold; /* Deixa o texto em negrito */
+    border-radius: 5px; /* Borda arredondada */
+    cursor: pointer; /* Cursor de ponteiro */
+    outline: none; /* Remove o contorno */
+    transition: color 0.3s, border 0.3s; /* Transição suave para a cor e a borda */
+}
+
+/* Pseudo-elemento para o preenchimento de fundo */
+#btnAplicarFiltro::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ff0000; /* Cor de fundo (vermelho) */
+    transition: transform 0.3s ease; /* Transição suave para o fundo */
+    transform: scaleY(0); /* Inicialmente invisível */
+    transform-origin: bottom; /* Preenchimento de baixo para cima */
+    z-index: -1; /* Coloca o fundo atrás do texto e da borda */
+    border-radius: 5px; /* Mantém a borda arredondada no fundo */
+}
+
+/* Efeito de hover no botão de filtro */
+#btnAplicarFiltro:hover {
+    color: #0e005f; /* Cor do texto ao passar o mouse */
+    border: 1px solid #0e005f; /* Cor da borda ao passar o mouse */
+}
+
+/* Efeito de hover no pseudo-elemento */
+#btnAplicarFiltro:hover::before {
+    transform: scaleY(1); /* Faz o fundo aparecer ao passar o mouse */
+}
+
 
 /* Para telas menores que 1200px */
 @media screen and (max-width: 1200px) {

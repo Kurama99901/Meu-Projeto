@@ -1,66 +1,94 @@
-fetch('estoque.json')
-    .then(response => response.json())
-    .then(data => {
-        const estoqueDiv = document.getElementById('estoque');
-        const table = document.createElement('table');
-        table.classList.add('tabela-estoque');
+// Função para carregar as movimentações com base nos filtros
+async function loadMovimentacoes(filtros = {}) {
+    const query = new URLSearchParams(filtros).toString();
+    const response = await fetch(`/movimentacoes?${query}`);  // Alterar para a URL correta
+    const data = await response.json();
 
-        // Adiciona o cabeçalho da tabela
-        const headerRow = document.createElement('tr');
-        headerRow.innerHTML = `
+    renderHistorico(data); // Chama a função para renderizar o histórico
+}
+// Certifique-se de que o modal esteja oculto ao carregar a página
+window.onload = function() {
+    const modal = document.getElementById('modalOperacoes');
+    modal.style.display = 'none';  // Garante que o modal não será exibido no início
+};
+
+
+// Função para renderizar o histórico no modal
+function renderHistorico(movimentacoes) {
+    const tabelaHistorico = document.getElementById('tabelaHistorico');
+    tabelaHistorico.innerHTML = ''; // Limpa o conteúdo antes de adicionar os novos dados
+
+    const table = document.createElement('table');
+    table.innerHTML = `
+        <tr>
+            <th>Data</th>
+            <th>Operação</th>
             <th>Produto</th>
             <th>Quantidade</th>
-            <th>Código do Sistema (antigo)</th>
-            <th>Código do Sistema (novo)</th>
-            <th>Localização</th>
-        `;
-        table.appendChild(headerRow);
-        
-        // Função para renderizar a tabela
-        function renderTable(items) {
-            // Limpa a tabela antes de renderizar
-            const existingRows = table.querySelectorAll('tr:not(:first-child)');
-            existingRows.forEach(row => row.remove()); // Remove as linhas existentes
+            <th>Responsável</th>
+            <th>Estoque Antes</th>
+            <th>Estoque Depois</th>
+        </tr>
+    `;
 
-            // Ordena os itens em ordem alfabética
-            items.sort((a, b) => a.produto.localeCompare(b.produto));
+    movimentacoes.forEach(m => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+    <td>${new Date(m.dataHora).toLocaleDateString('pt-BR')} ${new Date(m.dataHora).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}</td>
+    <td>${m.operacao}</td>
+    <td>${m.produto}</td>
+    <td>${m.quantidade}</td>
+    <td>${m.responsavel || 'N/A'}</td>
+    <td>${m.estoqueAntes}</td>
+    <td>${m.estoqueDepois}</td>
+`;
 
-            items.forEach(item => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${item.produto}</td>
-                    <td>${item.estoqueFinal}</td>
-                    <td>${item.codSistema}</td>
-                    <td>${item.codigoNovo}</td>
-                    <td>Dado inexistente na planilha...<td>
-                `;
-                //todo: adicionar a linha abaixo na renderização da tabela quando a coluna 'Localização' estiver presente na planilha
-                //<td>${item.local}</td>
-                table.appendChild(row);
-            });
+        table.appendChild(row);
+    });
 
-            // Adiciona a tabela ao div do estoque (apenas uma vez)
-            if (!estoqueDiv.contains(table)) {
-                estoqueDiv.appendChild(table);
-            }
-        }
+    tabelaHistorico.appendChild(table); // Adiciona a tabela ao modal
+}
 
-        // Renderiza a tabela inicial
-        renderTable(data.estoque);
+// Função para abrir o modal ao clicar no link "Operações"
+document.getElementById('btnOperacoes').addEventListener('click', function() {
+    const modal = document.getElementById('modalOperacoes');
+    modal.style.display = 'flex'; // Exibe o modal (usando 'flex' para centralizar)
+    document.body.classList.add('modal-aberta'); // Desabilita a rolagem da página
+    loadMovimentacoes(); // Carrega as movimentações quando o modal é aberto
+});
 
-        // Função de pesquisa
-        const searchInput = document.getElementById('search');
-        searchInput.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const filteredItems = data.estoque.filter(item => 
-                item.produto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(searchTerm) ||
-                //descomentar a linha abaixo quando a coluna 'Localização' estiver presente na planilha
-                //item.local.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(searchTerm) ||
-                item.codSistema.includes(searchTerm) ||
-                item.codigoNovo.includes(searchTerm)
-            );
-            renderTable(filteredItems);
-        });
-    })
-    .catch(error => console.error('Erro ao carregar o arquivo JSON:', error));
+// Fechar o modal ao clicar no botão de fechar
+document.getElementById('fecharModal').addEventListener('click', function() {
+    const modal = document.getElementById('modalOperacoes');
+    modal.style.display = 'none'; // Fecha o modal
+    document.body.classList.remove('modal-aberta'); // Restaura a rolagem da página
+});
+
+// Fechar o modal se o usuário clicar fora do conteúdo do modal
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('modalOperacoes');
+    if (event.target === modal) {
+        modal.style.display = 'none'; // Fecha o modal
+        document.body.classList.remove('modal-aberta'); // Restaura a rolagem da página
+    }
+});
+
+// Abrir e fechar o formulário de filtro
+document.getElementById('btnFiltro').addEventListener('click', function() {
+    const filtrosDiv = document.getElementById('filtros');
+    filtrosDiv.style.display = filtrosDiv.style.display === 'none' ? 'block' : 'none';
+});
+
+// Aplicar filtro
+document.getElementById('btnAplicarFiltro').addEventListener('click', function() {
+    const filtros = {
+        produto: document.getElementById('filtroProduto').value,
+        dataInicio: document.getElementById('filtroDataInicio').value,
+        dataFim: document.getElementById('filtroDataFim').value,
+        operacao: document.getElementById('filtroOperacao').value,
+    };
+
+    loadMovimentacoes(filtros); // Carrega as movimentações com base nos filtros
+    document.getElementById('filtros').style.display = 'none'; // Fecha o filtro
+});
 

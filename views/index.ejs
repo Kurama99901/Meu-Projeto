@@ -8,38 +8,87 @@
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/public/responsive.css">
     <link rel="icon" href="/img/logo2.png" type="image/png">
+    <!-- Adicionando FontAwesome para o ícone de filtro -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
 
 <header class="container-fluid cabeçalho">
     <div>
-        <!-- Corrigido o caminho da imagem -->
+        <!-- Logo à esquerda -->
         <img class="logo1" src="/img/logo_1.png" alt="Logo_Toyota">
     </div>
     
     <nav>
-        <a href="#home">Home</a>
+        <a href="#" id="btnOperacoes">Operações</a>
         <a href="/Estoque/listaEstoque.html">Estoque</a>
         <a href="#CHECK-LIST">Check-List</a>
     </nav>
 
     <div class="cabeçalho">
-        <!-- Corrigido o caminho da imagem -->
+        <!-- Logo à direita -->
         <img class="logo2" src="/img/logo2.png" alt="Logo_JM">
     </div>
     
     <img class="barra_topo" src="/img/barra_topo.png" alt="barra_topo">
 </header>
 
-<main>
-    <!-- Conteúdo principal da página -->
-</main>
+<!-- Modal de Operações -->
+<div id="modalOperacoes" class="modal">
+    <div class="modal-conteudo">
+        <span id="fecharModal" class="fechar">&times;</span>
+        <h3>Histórico de Operações</h3>
+
+        <!-- Botão de Filtro -->
+        <button id="btnFiltro" class="btn-filtro">
+            <i class="fa fa-filter"></i> Filtrar
+        </button>
+
+        <!-- Formulário de Filtro (inicialmente oculto) -->
+        <div id="filtros" class="filtros" style="display: none;">
+            <div>
+                <label for="filtroProduto">Produto:</label>
+                <input type="text" id="filtroProduto" placeholder="Filtrar por produto">
+            </div>
+            <div>
+                <label for="filtroOperacao">Operação:</label>
+                <select id="filtroOperacao">
+                    <option value="">Selecione a operação</option>
+                    <option value="entrada">Entrada</option>
+                    <option value="saída">Saída</option>
+                </select>
+            </div>
+            <div>
+                <label for="filtroDataInicio">Data Início:</label>
+                <input type="date" id="filtroDataInicio">
+            </div>
+            <div>
+                <label for="filtroDataFim">Data Fim:</label>
+                <input type="date" id="filtroDataFim">
+            </div>
+            <button id="btnAplicarFiltro">Aplicar Filtro</button>
+        </div>
+
+        <!-- Tabela de Histórico -->
+        <div id="tabelaHistorico"></div>
+    </div>
+</div>
+
+<div id="estoque"></div>
+<main></main>
 
 <footer>
     <p class="text-f">&copy; 2024 Estoque JM BRASÍLIA. Todos os direitos reservados. - PF</p>
     <img class="fundo_footer" src="/img/barra_topo.png" alt="barra_topo">
 </footer>
+
+<!-- Scripts do AdminLTE -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+
+<!-- Seu script personalizado -->
 <script src="/script.js"></script>
+
 </body>
 </html>

@@ -38,6 +38,26 @@ async function loadEstoqueData() {
         console.error("Erro ao carregar os dados do servidor:", error);
     }
 }
+// operações
+async function registerMovimentacao(movimentacao) {
+    try {
+        const response = await fetch('http://localhost:3000/movimentacoes', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(movimentacao),
+        });
+
+        if (!response.ok) {
+            throw new Error('Erro ao registrar movimentação');
+        }
+
+        console.log('Movimentação registrada:', await response.json());
+    } catch (error) {
+        console.error('Erro ao registrar movimentação:', error);
+    }
+}
 
    // Função para salvar o estoque no servidor
    function saveEstoqueData() {
@@ -171,15 +191,14 @@ codSistemaInput.addEventListener('input', function () {
     }
 });
     // Função para lidar com as alterações no estoque
-    function handleStockOperation() {
+    async function handleStockOperation() {
         const operacao = operacaoSelect.value;
         const produto = produtoInput.value;
-        const quantidade = parseInt(quantidadeInput.value, 10);  // Quantidade fornecida
+        const quantidade = parseInt(quantidadeInput.value, 10);
         const codSistema = codSistemaInput.value;
         const local = localInput.value;
         const responsavel = responsavelInput.value;
     
-        // Verificando se os campos obrigatórios foram preenchidos de acordo com a operação
         if (operacao === "retirada" || operacao === "devolucao") {
             if (!produto || !quantidade || !responsavel) {
                 alert("Por favor, preencha todos os campos para a operação.");
@@ -231,7 +250,6 @@ codSistemaInput.addEventListener('input', function () {
                 return;
             }
         } else if (operacao === "novo") {
-            // Adiciona um novo item ao estoque
             estoqueData.push({ produto, estoqueFinal: quantidade, codSistema, local });
             saveEstoqueData();
         } else if (operacao === "exclusao") {
@@ -248,6 +266,22 @@ codSistemaInput.addEventListener('input', function () {
     
         renderTable(estoqueData);
         closeModal();
+    
+        const movimentacao = {
+            produto: item.produto || produto, // Ajuste para garantir que o produto seja encontrado
+            quantidade,
+            operacao, // Usando "operacao" corretamente aqui
+            responsavel: responsavel || 'Desconhecido', // Responsável, se disponível
+            codSistema: item.codSistema || codSistema,
+            local: item.local || local,
+            estoqueAntes: item.estoqueFinal || 0,
+            estoqueDepois: operacao === 'retirada' 
+                ? item.estoqueFinal - quantidade 
+                : item.estoqueFinal + quantidade,
+            dataHora: new Date().toISOString(),
+        };
+        
+        await registerMovimentacao(movimentacao);
     }
     
 
