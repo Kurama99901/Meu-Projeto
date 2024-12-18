@@ -6,7 +6,7 @@
     <title>Estoque JM BSB</title>
     <!-- Corrigido o caminho do CSS -->
     <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/public/responsive.css">
+    <link rel="stylesheet" href="/responsive.css">
     <link rel="icon" href="/img/logo2.png" type="image/png">
     <!-- Adicionando FontAwesome para o ícone de filtro -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -76,8 +76,41 @@
 </div>
 
 <div id="estoque"></div>
-<main></main>
-
+<main style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+     <!-- Botão de navegação esquerda -->
+     <button id="prev-btn" class="nav-btn" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); z-index: 10;">
+        &#8592;
+      </button>
+    <div id="dashboard-container" style="width: 70%; position: relative; overflow: hidden;">
+     
+  
+      <!-- Seções de gráficos -->
+      <div id="carousel" style="display: flex; transition: transform 0.3s ease-in-out;">
+        <!-- Gráfico 1: Produtos com mais saídas -->
+        <section style="min-width: 100%; text-align: center;">
+          <h3 style="margin-bottom: 10px;">Produtos com Mais Saídas</h3>
+          <canvas id="produtosMaisSaidas" style="width: 90%; max-height: 400px;"></canvas>
+        </section>
+  
+        <!-- Gráfico 2: Técnicos com mais retiradas -->
+        <section style="min-width: 100%; text-align: center;">
+          <h3 style="margin-bottom: 10px;">Técnicos com Mais Retiradas</h3>
+          <canvas id="tecnicosMaisRetiradas" style="width: 90%; max-height: 400px;"></canvas>
+        </section>
+  
+        <!-- Gráfico 3: Produtos com Estoque Baixo -->
+        <section style="min-width: 100%; text-align: center;">
+          <h3 style="margin-bottom: 10px;">Produtos com Estoque Baixo</h3>
+          <canvas id="produtosEstoqueBaixo" style="width: 90%; max-height: 400px;"></canvas>
+        </section>
+      </div>
+    </div>
+     <!-- Botão de navegação direita -->
+     <button id="next-btn" class="nav-btn" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); z-index: 10;">
+        &#8594;
+      </button>
+    </div>
+  </main>
 <footer>
     <p class="text-f">&copy; 2024 Estoque JM BRASÍLIA. Todos os direitos reservados. - PF</p>
     <img class="fundo_footer" src="/img/barra_topo.png" alt="barra_topo">
@@ -89,6 +122,7 @@
 
 <!-- Seu script personalizado -->
 <script src="/script.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/graficos.js"></script>
 </body>
 </html>

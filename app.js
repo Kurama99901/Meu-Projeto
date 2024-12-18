@@ -7,18 +7,21 @@ require('dotenv').config();
 
 const app = express(); // Inicializando o aplicativo Express
 const port = process.env.PORT || 3000;
-app.use(express.json());
+app.use(express.json()); // Para processar JSON
 
 // Roteamento
 const movimentacoesRoutes = require('./routes/movimentacoes'); // Ajuste o caminho
 app.use('/movimentacoes', movimentacoesRoutes);
+
+// Rota dashboard
+const dashboardRouter = require('./routes/dashboard');
+app.use('/dashboard', dashboardRouter);
 
 // Configurações do middleware
 app.use(cors());
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.json()); // Para processar JSON
 
 // Caminho do banco de dados
 const dbPath = path.join(__dirname, 'public', 'Estoque', 'estoque.db');
@@ -34,7 +37,7 @@ const db = new sqlite3.Database(dbPath, (err) => {
 
 // Criação da tabela "produtos"
 db.serialize(() => {
-    db.run(` 
+    db.run(`
         CREATE TABLE IF NOT EXISTS produtos (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             produto TEXT,

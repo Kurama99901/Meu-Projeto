@@ -89,6 +89,65 @@ nav a:hover {
 main {
     flex-grow: 1;
 }
+#dashboard-container {
+  width: 70%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+#carousel {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  margin-top: 20px; /* Mover os gráficos para mais perto do cabeçalho */
+}
+
+#carousel section {
+  min-width: 100%;
+  text-align: center;
+  padding: 20px; /* Adicionando espaçamento entre os gráficos */
+}
+
+#carousel section h3 {
+  font-size: 1.2rem;
+  margin: 10px 0; /* Ajustando o espaçamento entre o título e o gráfico */
+}
+
+.nav-btn {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.nav-btn:hover {
+  background: #0056b3;
+}
+
+#prev-btn {
+  left: 5%; /* Ajuste para dar um pouco mais de distância */
+}
+
+#next-btn {
+  right: 5%; /* Ajuste para dar um pouco mais de distância */
+}
+
+canvas {
+  width: 90% !important; /* Garantindo que os gráficos não saiam do contêiner */
+  max-height: 400px;
+}
+ 
 
 /* Rodapé */
 footer {
