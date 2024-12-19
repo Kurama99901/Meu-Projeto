@@ -11,24 +11,31 @@ const updateCarousel = () => {
   carousel.style.transform = `translateX(${offset}%)`;
 
   // Desabilitar botões conforme necessário
-  document.getElementById('prev-btn').disabled = currentIndex === 0;
-  document.getElementById('next-btn').disabled = currentIndex === totalSections - 1;
+  //document.getElementById('prev-btn').disabled = currentIndex === 0;
+  //document.getElementById('next-btn').disabled = currentIndex === totalSections - 1;
 };
 
 // Configuração dos botões de navegação
 document.getElementById('prev-btn').addEventListener('click', () => {
   if (currentIndex > 0) {
     currentIndex--;
-    updateCarousel();
+  } else {
+    // Se já estiver na primeira seção, vai para a última seção
+    const sections = document.querySelectorAll('#carousel > section');
+    currentIndex = sections.length - 1;
   }
+  updateCarousel();
 });
 
 document.getElementById('next-btn').addEventListener('click', () => {
   const sections = document.querySelectorAll('#carousel > section');
   if (currentIndex < sections.length - 1) {
     currentIndex++;
-    updateCarousel();
+  } else {
+    // Se chegar ao final, volta para a primeira seção
+    currentIndex = 0;
   }
+  updateCarousel();
 });
 
 // Função para inicializar os gráficos

@@ -3,7 +3,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: #ffffff7e;
-    overflow-x: hidden; /* Impede o overflow horizontal */
+    overflow-x: hidden;
+    overflow:hidden; /* Impede o overflow horizontal */
     min-height: 100vh; /* Garante que a altura mínima da página seja 100% da altura da janela */
 }
 
@@ -100,13 +101,12 @@ main {
 #carousel {
   display: flex;
   transition: transform 0.3s ease-in-out;
-  margin-top: 20px; /* Mover os gráficos para mais perto do cabeçalho */
+  margin-top: 0px; /* Mover os gráficos para mais perto do cabeçalho */
 }
 
 #carousel section {
   min-width: 100%;
   text-align: center;
-  padding: 20px; /* Adicionando espaçamento entre os gráficos */
 }
 
 #carousel section h3 {
@@ -115,34 +115,32 @@ main {
 }
 
 .nav-btn {
-  background: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  font-size: 18px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s ease;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-}
-
-.nav-btn:hover {
-  background: #0056b3;
-}
-
-#prev-btn {
-  left: 5%; /* Ajuste para dar um pouco mais de distância */
-}
-
-#next-btn {
-  right: 5%; /* Ajuste para dar um pouco mais de distância */
-}
-
+    color: rgb(0, 0, 104); /* Cor inicial das setas */
+    border: none;
+    background: none; /* Remove o fundo */
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
+    font-size: 24px; /* Aumenta o tamanho das setas */
+    transition: color 0.3s ease; /* Transição para a cor da seta */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+  
+  .nav-btn:hover {
+    color: red; /* Cor vermelha ao passar o mouse */
+  }
+  
+  #prev-btn {
+    left: 0%; /* Ajuste para dar um pouco mais de distância */
+  }
+  
+  #next-btn {
+    right: 0%; /* Ajuste para dar um pouco mais de distância */
+  }
+  
 canvas {
   width: 90% !important; /* Garantindo que os gráficos não saiam do contêiner */
   max-height: 400px;

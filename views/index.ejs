@@ -10,6 +10,9 @@
     <link rel="icon" href="/img/logo2.png" type="image/png">
     <!-- Adicionando FontAwesome para o ícone de filtro -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Carregar FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
 </head>
 
 <body>
@@ -77,10 +80,10 @@
 
 <div id="estoque"></div>
 <main style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-     <!-- Botão de navegação esquerda -->
-     <button id="prev-btn" class="nav-btn" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); z-index: 10;">
-        &#8592;
-      </button>
+  <button id="prev-btn" class="nav-btn">
+    <i class="fa-solid fa-angles-left"></i>
+  </button>
+  
     <div id="dashboard-container" style="width: 70%; position: relative; overflow: hidden;">
      
   
@@ -105,10 +108,9 @@
         </section>
       </div>
     </div>
-     <!-- Botão de navegação direita -->
-     <button id="next-btn" class="nav-btn" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); z-index: 10;">
-        &#8594;
-      </button>
+    <button id="next-btn" class="nav-btn">
+      <i class="fa-solid fa-angles-right"></i>
+    </button>
     </div>
   </main>
 <footer>
