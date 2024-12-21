@@ -1,7 +1,7 @@
 // Função para carregar as movimentações com base nos filtros
 async function loadMovimentacoes(filtros = {}) {
     const query = new URLSearchParams(filtros).toString();
-    const response = await fetch(`http://localhost:3000/movimentacoes?${query}`);  // Alterar para a URL correta
+    const response = await fetch(`http://145.223.30.125:3000/movimentacoes?${query}`);  // Alterar para a URL correta
     const data = await response.json();
 
     renderHistorico(data); // Chama a função para renderizar o histórico

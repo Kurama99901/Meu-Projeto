@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let suggestionItems = []; // Variável para armazenar as sugestões geradas
     let currentIndex = -1; // Índice da sugestão selecionada
    // URL da API
-  const apiUrl = 'http://localhost:3000';
+  const apiUrl = 'http://145.223.30.125:3000';
 
    // Função para carregar o estoque do servidor
 async function loadEstoqueData() {
@@ -41,7 +41,7 @@ async function loadEstoqueData() {
 // operações
 async function registerMovimentacao(movimentacao) {
     try {
-        const response = await fetch('http://localhost:3000/movimentacoes', {
+        const response = await fetch('http://145.223.30.125:3000/movimentacoes', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
