@@ -9,6 +9,16 @@ const app = express(); // Inicializando o aplicativo Express
 const port = process.env.PORT || 3000;
 app.use(express.json()); // Para processar JSON
 
+// Inicialização do banco de dados
+const dbPath = path.join(__dirname, 'public', 'Estoque', 'estoque.db'); // Ajuste o caminho se necessário
+const db = new sqlite3.Database(dbPath, (err) => {
+    if (err) {
+        console.error('Erro ao conectar ao banco de dados:', err);
+    } else {
+        console.log('Conectado ao banco de dados SQLite com sucesso.');
+    }
+});
+
 // Roteamento
 const movimentacoesRoutes = require('./routes/movimentacoes'); // Ajuste o caminho
 app.use('/movimentacoes', movimentacoesRoutes);
@@ -23,16 +33,16 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Caminho do banco de dados
-const dbPath = path.join(__dirname, 'public', 'Estoque', 'estoque.db');
-
-// Cria ou abre o banco de dados SQLite
-const db = new sqlite3.Database(dbPath, (err) => {
-    if (err) {
-        console.error('Erro ao abrir o banco de dados:', err);
-    } else {
-        console.log('Banco de dados conectado com sucesso!');
-    }
+// Rota checklist
+app.get('/checklist', (req, res) => {
+    const sql = "SELECT * FROM produtos"; // Query SQL para buscar os produtos
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            console.error('Erro ao carregar dados do checklist:', err);
+            return res.status(500).json({ message: 'Erro ao carregar o checklist.' });
+        }
+        res.json({ checklist: rows }); // Retorna os dados do checklist
+    });
 });
 
 // Criação da tabela "produtos"

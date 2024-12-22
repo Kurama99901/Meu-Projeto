@@ -374,125 +374,40 @@ footer {
     transform: scaleY(1); /* Faz o fundo aparecer ao passar o mouse */
 }
 
-
-/* Para telas menores que 1200px */
-@media screen and (max-width: 1200px) {
-    nav {
-        justify-content: flex-start; /* Alinha os itens à esquerda */
-        gap: 15px;
-    }
-
-    .logo1, .logo2 {
-        max-height: 60px; /* Ajusta o tamanho das logos */
-    }
-}
-
-/* Para telas menores que 1024px (Tablets) */
-@media screen and (max-width: 1024px) {
-    .cabeçalho {
-        flex-direction: column;  /* Organiza os itens na vertical */
-        text-align: center;
-        padding: 15px;
-    }
-
-    nav {
-        flex-direction: column; /* Empilha os links da navegação */
-        gap: 10px; 
-        margin-top: 20px;
-    }
-
-    .logo1, .logo2 {
-        max-height: 50px;  /* Ajusta o tamanho das logos */
-    }
-
-    .barra_topo {
-        top: 100px; /* Ajuste de posição da barra */
-    }
-
-    footer {
-        padding: 10px 20px;
-    }
-
-    .text-f {
-        font-size: 14px;
-        margin-top: 150px;
-    }
-
-    .fundo_footer {
-        height: 12px;
-    }
-}
-
-/* Para telas menores que 768px (Smartphones) */
-@media screen and (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 10px;
+/* Ajustes de responsividade */
+@media (max-width: 1200px) {
+    #dashboard-container {
+        width: 90%; /* Ajusta a largura do contêiner para telas grandes */
     }
 
     nav a {
-        font-size: 16px;
-        padding: 8px 15px;
+        font-size: 0.9rem; /* Reduz o tamanho da fonte nos links */
+        padding: 4px 8px; /* Ajusta o espaçamento interno */
     }
 
-    .logo1, .logo2 {
-        max-height: 50px;
-    }
-
-    .barra_topo {
-        top: 90px;
-    }
-
-    footer {
-        padding: 10px 15px;
-    }
-
-    .text-f {
-        font-size: 14px;
-        margin-top: 150px;
-    }
-
-    .fundo_footer {
-        height: 12px;
+    .logo2 {
+        right: 20px; /* Reposiciona o logo para telas menores */
     }
 }
 
-/* Para telas menores que 480px (Smartphones menores) */
-@media screen and (max-width: 480px) {
-    .cabeçalho {
-        padding: 5px 10px;
+@media (max-width: 992px) {
+    .navbar {
+        flex-wrap: wrap; /* Permite quebra de linha para os itens no cabeçalho */
     }
 
     nav {
-        flex-direction: column;
-        gap: 8px;
-        margin-top: 10px;
+        flex-direction: column; /* Navegação em coluna */
+        align-items: center; /* Centraliza os links */
+        gap: 10px; /* Aumenta o espaçamento entre os links */
     }
 
-    nav a {
-        font-size: 14px;
-        padding: 6px 12px;
-    }
-
-    .logo1, .logo2 {
-        max-height: 40px;
-    }
-
-    .barra_topo {
-        top: 80px;
+    .logo1,
+    .logo2 {
+        max-height: 50px; /* Reduz o tamanho das logos */
     }
 
     footer {
-        padding: 10px 15px;
-    }
-
-    .text-f {
-        font-size: 12px;
-        margin-top: 150px;
-    }
-
-    .fundo_footer {
-        height: 10px;
+        height: auto; /* Ajusta altura do rodapé */
+        padding: 10px 0; /* Reduz o espaçamento interno */
     }
 }

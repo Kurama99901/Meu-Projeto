@@ -365,6 +365,18 @@ label {
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
     z-index: 1000; /* Garante que a caixa de sugestões fique acima de outros elementos */
+}
+    .icon-container .icone-impressora {
+        font-size: 24px; /* Aumenta o tamanho do ícone */
+        cursor: pointer; /* Adiciona a mãozinha ao passar o mouse */
+        transition: transform 0.2s, color 0.2s; /* Suaviza o efeito ao passar o mouse */
+    }
+    
+    .icon-container .icone-impressora:hover {
+        transform: scale(1.2); /* Aumenta o ícone ao passar o mouse */
+        color: #ff0000; /* Altera a cor do ícone para vermelho ao passar o mouse
+    }
+    
     display: none; /* Inicialmente invisível */
 }
 /* Responsividade para garantir que a caixa de sugestões não sobreponha o input */
@@ -477,5 +489,92 @@ footer p {
 
     button {
         padding: 15px;
+    }
+}
+
+@media print {
+    body {
+        font-family: Arial, sans-serif;
+        margin: 10px;
+        padding: 0;
+        color: #000;
+        background-color: #fff;
+    }
+
+    /* Tabela otimizada para impressão */
+    .tabela-checklist {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 10px;
+        page-break-inside: avoid; /* Evitar quebra no meio da tabela */
+        max-width: 100%;
+        word-break: break-word; /* Permitir quebra de palavras longas */
+    }
+
+    .tabela-checklist th {
+        background-color: #f2f2f2;
+        border: 1px solid #000;
+        padding: 8px;
+        font-weight: bold;
+        text-align: center;
+        font-size: 12px; /* Tamanho reduzido para caber mais informações */
+    }
+
+    .tabela-checklist td {
+        border: 1px solid #000;
+        padding: 8px;
+        text-align: left;
+        font-size: 12px; /* Tamanho reduzido para mais compactação */
+        word-wrap: break-word;
+    }
+
+    /* Melhor separação visual entre linhas */
+    .tabela-checklist tr:nth-child(even) td {
+        background-color: #f9f9f9;
+    }
+
+    /* Ocultar elementos não necessários */
+    header, footer, .search-container, .editar-item {
+        display: none; /* Remove elementos não essenciais */
+    }
+
+    /* Ocultar a última coluna (Ações) */
+    .tabela-checklist th:last-child, 
+    .tabela-checklist td:last-child {
+        display: none;
+    }
+
+    /* Centralizar a tabela */
+    .tabela-checklist {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Ajustes gerais para títulos */
+    h1, h2, h3 {
+        text-align: center;
+        margin-top: 0;
+    }
+
+    /* Ajustar margens da página para impressão */
+    @page {
+        size: auto;
+        margin: 10mm; /* Margem reduzida para aproveitar melhor o espaço */
+    }
+
+    /* Evitar quebra de linhas dentro das linhas da tabela */
+    tr {
+        page-break-inside: avoid;
+    }
+
+    /* Ajustar espaçamento entre tabelas para maior organização */
+    table + table {
+        margin-top: 10px;
+    }
+
+    /* Ajustar quebras de página antes e depois das tabelas, se necessário */
+    .tabela-checklist {
+        page-break-before: auto;
+        page-break-after: auto;
     }
 }
