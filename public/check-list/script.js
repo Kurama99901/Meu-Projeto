@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let checklistData = [];
     let itemEditado = null;
 
-    const apiUrl = "http://192.168.15.200:3000";
+    const apiUrl = "http://145.223.30.125:3000";
 
     // Carregar os dados do checklist
     async function loadChecklistData() {

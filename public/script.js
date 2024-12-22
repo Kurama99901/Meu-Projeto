@@ -1,5 +1,5 @@
 // Define a URL base para a API
-const API_BASE_URL = 'http://192.168.15.200:3000'; // Incluindo a porta 3000
+const API_BASE_URL = 'http://145.223.30.125:3000'; // Incluindo a porta 3000
 
 
 // Função para carregar as movimentações com base nos filtros

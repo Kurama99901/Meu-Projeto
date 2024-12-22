@@ -4,73 +4,62 @@ body {
     padding: 0;
     background-color: #ffffff7e;
     overflow-x: hidden; /* Impede o overflow horizontal */
-    min-height: 100vh; /* Garante que a altura mínima da página seja 100% da altura da janela */
+    min-height: 100vh; /* Garante altura mínima da página */
+    display: flex;
+    flex-direction: column;
 }
 
 /* Cabeçalho */
 .navbar {
-    display: flex;
-    justify-content: space-between; /* Logo1 à esquerda e Logo2 à direita */
-    align-items: center; /* Alinha verticalmente os itens */
-    padding: 10px 20px;
-    background-color: #fff;
-    width: 100%;
-    position: relative;
-    box-sizing: border-box;
-}
-
-nav {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    gap: 5px;
-    flex-grow: 1;
-    margin-top: 57px;
-    width: auto;
-}
-
-/* Estilo dos links na navegação */
-nav a {
-    text-decoration: none;
-    font-size: 1rem; /* Tamanho de fonte relativo */
-    color: #333;
-    padding: 5px 10px;
-    transition: background-color 0.3s ease;
-}
-
-nav a:hover {
-    background-color: rgba(163, 161, 161, 0.062); /* Efeito hover */
-    border-radius: 5px;
-    color: #bb0e0ed7;
-}
-
-.cabeçalho {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: #fff;
     width: 100%;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 10; /* Mantém o cabeçalho acima dos gráficos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra */
 }
 
-/* Logo1 - Fixa à esquerda */
-.logo1 {
+nav {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 10px;
+    flex-grow: 1;
+    margin-top: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #333;
+    padding: 8px 15px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: rgba(163, 161, 161, 0.062); 
+    border-radius: 5px;
+    color: #bb0e0ed7;
+}
+
+/* Logos no cabeçalho */
+.logo1, .logo2 {
     max-height: 70px;
     flex-shrink: 0;
 }
 
-/* Logo2 - Fixa à direita */
 .logo2 {
-    max-height: 70px;
     position: absolute;
-    right: 30px; /* Afastada da borda direita */
+    right: 30px;
     top: 50%;
-    transform: translateY(-50%); /* Centraliza verticalmente */
-    flex-shrink: 0;
+    transform: translateY(-50%);
 }
 
-/* Barra Superior */
+/* Barra superior */
 .barra_topo {
     position: absolute;
     top: 115px;
@@ -83,29 +72,53 @@ nav a:hover {
 /* Main */
 main {
     flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Ajuste para gráficos */
+.graficos {
+    width: 100%;
+    max-width: 1200px;
+    margin: -50px auto 0; /* Sobe os gráficos */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Gráficos individuais */
+.grafico {
+    flex: 1 1 45%; /* Dois gráficos lado a lado em telas grandes */
+    min-width: 300px;
+    max-width: 500px;
+    background-color: #fff;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
 
 /* Rodapé */
 footer {
-    position: fixed;
-    bottom: 0;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     background-color: transparent;
     padding: 20px 0;
-    height: 126px;
+    height: auto;
+    margin-top: 20px;
 }
 
 .text-f {
     color: #ffffff;
     font-size: small;
-    margin: 0;
     text-align: center;
-    position: relative;
-    z-index: 2;
-    margin-top: 150px;
 }
 
 .fundo_footer {
@@ -118,6 +131,16 @@ footer {
 }
 
 /* Responsividade */
+
+/* Responsividade para telas maiores */
+@media (min-width: 1024px) {
+    nav a {
+        font-size: 1.1rem;
+    }
+    .graficos {
+        margin-top: -70px; /* Ajuste os gráficos ainda mais acima em telas grandes */
+    }
+}
 
 /* Para telas menores que 768px (Smartphones) */
 @media screen and (max-width: 768px) {
