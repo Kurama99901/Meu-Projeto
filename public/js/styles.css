@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.header .logos {
+    display: flex;
+    align-items: center;
+}
+
+.header .logos img {
+    max-height: 60px;
+    max-width: 100%;
+}
+
+.navbar-nav {
+    margin-left: 20px; /* Ajusta a distância entre o nav e a logo Toyota */
+}
+
+.divider {
+    height: 2px;
+    background: linear-gradient(to right, #000080, #8B0000);
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.footer {
+    background: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    padding: 5px;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-image: linear-gradient(to right, #000080, #8B0000);
+}
+
+.content {
+    margin: 20px;
+    text-align: center;
+    flex: 1;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navbar-nav {
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .logos img {
+        max-height: 50px;
+    }
+}

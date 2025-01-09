@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamentos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/js/styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container-fluid d-flex justify-content-between align-items-center py-3">
+            <!-- Logo Toyota -->
+            <div class="logos">
+                <img src="/img/logo_1.png" alt="Toyota Logo" class="img-fluid" style="max-height: 60px;">
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <!-- Navbar -->
+<ul class="navbar-nav ms-auto">
+    <li class="nav-item">
+        <!-- Esse link vai abrir o modal de agendamento -->
+        <a class="nav-link active" id="agendamentoLink" href="#" data-bs-toggle="modal" data-bs-target="#agendamentoModal">Realizar Agendamento</a>
+    </li>
+</ul>
+                </div>
+            </nav>
+            
+            <!-- Logo JM -->
+            <div class="logos">
+                <img src="/img/logo2.png" alt="JM Logo" class="img-fluid" style="max-height: 60px;">
+            </div>
+        </div>
+    </header>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+
+   <!-- Lista de Agendamentos -->
+<<!-- Lista de Agendamentos -->
+<div id="listaAgendamentos" class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center">
+        <h2>Lista de Agendamentos</h2>
+        <!-- Ícone de Filtro -->
+        <i class="fas fa-filter" data-bs-toggle="modal" data-bs-target="#filtroAgendamentoModal" style="cursor: pointer; font-size: 24px;"></i>
+    </div>
+    
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Empresa</th>
+                <th>Data e Hora</th>
+                <th>Técnico</th>
+                <th>Tipo de Serviço</th>
+                <th>Produto</th>
+                <th>Observações</th>
+                <th>Ações</th> <!-- Coluna de Ações para Editar -->
+            </tr>
+        </thead>
+        <tbody id="agendamentosList">
+            <% agendamentos.forEach(agendamento => { %>
+                <tr>
+                    <td><%= agendamento.empresa %></td>
+                    <td><%= agendamento.dataHora %></td>
+                    <td><%= agendamento.tecnico %></td>
+                    <td><%= agendamento.tipoServico %></td>
+                    <td><%= agendamento.nome_produto || 'N/A' %></td>
+                    <td><%= agendamento.observacoes || 'N/A' %></td>
+                 <!-- Na tabela de agendamentos, dentro do <tbody>, adicione o botão de excluir -->
+<td>
+    <a href="#" class="btn btn-warning btn-sm edit-agendamento" data-id="<%= agendamento.id %>" data-bs-toggle="modal" data-bs-target="#editarAgendamentoModal">Editar</a>
+    <a href="#" class="btn btn-danger btn-sm delete-agendamento" data-id="<%= agendamento.id %>">Excluir</a>
+</td>
+
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+    <!-- Modal para Editar Agendamento -->
+<div class="modal fade" id="editarAgendamentoModal" tabindex="-1" aria-labelledby="editarAgendamentoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editarAgendamentoModalLabel">Editar Agendamento</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editarAgendamentoForm">
+                    <input type="hidden" id="editAgendamentoId"> <!-- ID do agendamento -->
+                    <div class="mb-3">
+                        <label for="editEmpresa" class="form-label">Nome da Empresa</label>
+                        <input type="text" class="form-control" id="editEmpresa" name="empresa" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editDataHora" class="form-label">Data e Hora</label>
+                        <input type="datetime-local" class="form-control" id="editDataHora" name="dataHora" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editTecnico" class="form-label">Técnico</label>
+                        <input type="text" class="form-control" id="editTecnico" name="tecnico" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editTipoServico" class="form-label">Tipo de Serviço</label>
+                        <select class="form-select" id="editTipoServico" name="tipoServico" required>
+                            <option value="manutencaoPreventiva500h">Manutenção Preventiva - Plano 500h</option>
+                            <option value="manutencaoPreventiva1000h">Manutenção Preventiva - Plano 1000h</option>
+                            <option value="manutencaoPreventiva1500h">Manutenção Preventiva - Plano 1500h</option>
+                            <option value="manutencaoPreventiva2000h">Manutenção Preventiva - Plano 2000h</option>
+                            <option value="manutencaoCorretiva">Manutenção Corretiva</option>
+                            <option value="visitaTecnica">Visita Técnica</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editObservacoes" class="form-label">Observações</label>
+                        <textarea class="form-control" id="editObservacoes" name="observacoes" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar alterações</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal para Realizar Agendamento -->
+<div class="modal fade" id="agendamentoModal" tabindex="-1" aria-labelledby="agendamentoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="agendamentoModalLabel">Realizar Agendamento</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Formulário de Agendamento -->
+                <form id="agendamentoForm">
+                    <!-- Nome da Empresa -->
+                    <div class="mb-3">
+                        <label for="empresa" class="form-label">Nome da Empresa</label>
+                        <input type="text" class="form-control" id="empresa" name="empresa" required>
+                    </div>
+
+                    <!-- Data e Hora -->
+                    <div class="mb-3">
+                        <label for="dataHora" class="form-label">Data e Hora</label>
+                        <input type="datetime-local" class="form-control" id="dataHora" name="dataHora" required>
+                    </div>
+
+                    <!-- Técnico -->
+                    <div class="mb-3">
+                        <label for="tecnico" class="form-label">Técnico</label>
+                        <input type="text" class="form-control" id="tecnico" name="tecnico" required>
+                    </div>
+
+                    <!-- Tipo de Serviço -->
+                    <div class="mb-3">
+                        <label for="tipoServico" class="form-label">Tipo de Serviço</label>
+                        <select class="form-select" id="tipoServico" name="tipoServico" required>
+                            <option value="manutencaoPreventiva500h">Manutenção Preventiva - Plano 500h</option>
+                            <option value="manutencaoPreventiva1000h">Manutenção Preventiva - Plano 1000h</option>
+                            <option value="manutencaoPreventiva1500h">Manutenção Preventiva - Plano 1500h</option>
+                            <option value="manutencaoPreventiva2000h">Manutenção Preventiva - Plano 2000h</option>
+                            <option value="manutencaoCorretiva">Manutenção Corretiva</option>
+                            <option value="visitaTecnica">Visita Técnica</option>
+                        </select>
+                    </div>
+
+                    <!-- Peças a serem usadas -->
+                    <div class="mb-3">
+                        <label for="pecas" class="form-label">Peças a serem usadas</label>
+                        <textarea class="form-control" id="pecas" name="pecas" rows="3"></textarea>
+                    </div>
+
+                    <!-- Observações -->
+                    <div class="mb-3">
+                        <label for="observacoes" class="form-label">Observações</label>
+                        <textarea class="form-control" id="observacoes" name="observacoes" rows="3"></textarea>
+                    </div>
+
+                    <!-- Botão de Submissão -->
+                    <button type="submit" class="btn btn-primary">Agendar Serviço</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Filtro de Agendamentos -->
+<div class="modal fade" id="filtroAgendamentoModal" tabindex="-1" aria-labelledby="filtroAgendamentoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="filtroAgendamentoModalLabel">Filtrar Agendamentos</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Formulário de Filtro -->
+                <form id="filtroAgendamentoForm">
+                    <!-- Nome da Empresa -->
+                    <div class="mb-3">
+                        <label for="filtroEmpresa" class="form-label">Nome da Empresa</label>
+                        <input type="text" class="form-control" id="filtroEmpresa" name="empresa" placeholder="Digite o nome da empresa">
+                    </div>
+
+                    <!-- Data -->
+                    <div class="mb-3">
+                        <label for="filtroData" class="form-label">Data do Agendamento</label>
+                        <input type="date" class="form-control" id="filtroData" name="data" placeholder="Escolha a data">
+                    </div>
+
+                    <!-- Botão de Filtragem -->
+                    <button type="submit" class="btn btn-primary">Aplicar Filtro</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Estoque JM BRASÍLIA. Todos os direitos reservados. - PF</p>
+    </footer>
+
+    <!-- Bootstrap JS e dependências (Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Script Externo -->
+    <script src="/js/script.js"></script>
+</body>
+</html>

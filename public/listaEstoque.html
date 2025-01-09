@@ -6,7 +6,7 @@
     <!-- Arquivos CSS do Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" href="/img/logo2.png" type="image/png">
-    <link rel="stylesheet" href="stylesEstoque.css"> <!-- Link para o arquivo CSS -->
+    <link rel="stylesheet" href="/Estoque/stylesEstoque.css"> <!-- Link para o arquivo CSS -->
     <title>Estoque</title>
 </head>
 <body>
@@ -28,19 +28,19 @@
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav ms-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#" id="navRetirada">Retirar Produto</a>
+                                    <a class="nav-link" href="#" id="navRetirada" data-bs-toggle="modal" data-bs-target="#modalLancamento">Retirar Produto</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#" id="navDevolucao">Devolução</a>
+                                    <a class="nav-link" href="#" id="navDevolucao" data-bs-toggle="modal" data-bs-target="#modalLancamento">Devolução</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#" id="navNovoProduto">Novo Produto</a>
+                                    <a class="nav-link" href="#" id="navNovoProduto" data-bs-toggle="modal" data-bs-target="#modalLancamento">Novo Produto</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#" id="navExcluirProduto">Excluir Produto</a>
+                                    <a class="nav-link" href="#" id="navExcluirProduto" data-bs-toggle="modal" data-bs-target="#modalLancamento">Excluir Produto</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/" class="nav-link">Menu</a>
+                                    <a href="/paginainicial.html" class="nav-link">Menu</a>
                                 </li>
                             </ul>
                         </div>
@@ -124,6 +124,6 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="scriptEstoque.js"></script>
+    <script src="/Estoque/scriptEstoque.js"></script>
 </body>
 </html>

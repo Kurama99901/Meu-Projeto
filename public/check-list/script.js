@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("modalChecklist");
     const btnSalvarEdicao = document.getElementById("salvarEdicao");
     const btnFecharModal = document.querySelector(".fechar");
+    const modalInstance = new bootstrap.Modal(modalElement);
 
     const checklistInput = {
         produto: document.getElementById("itemNome"),
@@ -32,17 +33,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Renderizar checklist na tabela
     function renderChecklist(items) {
         if (!checklistDiv) {
             console.error("Elemento com ID 'checklistDiv' não foi encontrado no DOM.");
             return;
         }
-
-        checklistDiv.innerHTML = "";
+    
+        checklistDiv.innerHTML = ""; // Limpa o conteúdo da div
         const table = document.createElement("table");
-        table.classList.add("tabela-checklist");
-
+        table.classList.add("table", "table-bordered", "table-striped", "table-hover"); // Usando classes do Bootstrap
+    
         // Cabeçalho da tabela
         const headerRow = document.createElement("tr");
         headerRow.innerHTML = `
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <th>Ações</th>
         `;
         table.appendChild(headerRow);
-
+    
         // Itens do checklist
         items.forEach((item, index) => {
             const row = document.createElement("tr");
@@ -62,21 +62,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 <td>${item.estoqueFinal}</td>
                 <td>${item.codSistema}</td>
                 <td>${item.local}</td>
-                <td><button class="editar-item" data-index="${index}">✏️</button></td>
+                <td><button class="btn btn-warning editar-item" data-index="${index}">✏️</button></td>
             `;
             table.appendChild(row);
         });
-
+    
         checklistDiv.appendChild(table);
-
-        // Adicionar eventos aos botões de editar
-        document.querySelectorAll(".editar-item").forEach((button) => {
-            button.addEventListener("click", openEditModal);
-        });
     }
-
     // Abrir o modal para edição
     function openEditModal(event) {
+        modalInstance.show();  // Usando o método do Bootstrap para abrir o modal
         const index = event.target.dataset.index;
         itemEditado = checklistData[index];
 
@@ -91,6 +86,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fechar o modal
     function closeModal() {
+        modalInstance.hide();  // Usando o método do Bootstrap para fechar o modal
+
         modal.style.display = "none";
         document.body.style.overflow = "auto";
     }
