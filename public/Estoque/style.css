@@ -1,0 +1,380 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.header .logos {
+    display: flex;
+    align-items: center;
+}
+
+.header .logos img {
+    max-height: 60px;
+    max-width: 100%;
+}
+
+.navbar-nav {
+    margin-left: 20px; /* Ajusta a distância entre o nav e a logo Toyota */
+    width: auto;
+    flex-wrap: nowrap; /* Impede a quebra de linha entre os itens */
+}
+
+.navbar-toggler {
+    border: none;
+    background-color: transparent;
+}
+
+.navbar-toggler-icon {
+    background-color: #333;
+}
+.divider {
+    height: 2px;
+    background: linear-gradient(to right, #000080, #8B0000);
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.footer {
+    background: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    padding: 5px;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+}
+
+.content {
+    margin: 20px;
+    text-align: center;
+    flex: 1;
+}
+/* Garante que o modal esteja oculto inicialmente */
+#modalOperacoes {
+    display: none; /* Modal ficará oculto por padrão */
+}
+
+/* Main */
+main {
+    flex-grow: 1;
+}
+
+#dashboard-container {
+    width: 70%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+#carousel {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    margin-top: 0; /* Mover os gráficos para mais perto do cabeçalho */
+}
+
+#carousel section {
+    min-width: 100%;
+    text-align: center;
+}
+
+#carousel section h3 {
+    font-size: 1.2rem;
+    margin: 10px 0; /* Ajustando o espaçamento entre o título e o gráfico */
+}
+
+.nav-btn {
+    color: rgb(0, 0, 104); /* Cor inicial das setas */
+    border: none;
+    background: none; /* Remove o fundo */
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    font-size: 24px; /* Tamanho das setas */
+    transition: color 0.3s ease; /* Transição para a cor da seta */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.nav-btn:hover {
+    color: red; /* Cor vermelha ao passar o mouse */
+}
+
+#prev-btn {
+    left: 10px;
+}
+
+#next-btn {
+    right: 10px;
+}
+
+canvas {
+    width: 100% !important; /* Garantindo que os gráficos não saiam do contêiner */
+    max-height: 400px;
+}
+
+/* Estilo do modal */
+.modal {
+    display: none;  /* Inicialmente o modal está escondido */
+    position: fixed; /* Fica fixo na tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo opaco */
+    z-index: 1000; /* Garante que o modal fique acima de outros elementos */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centraliza o modal na tela */
+}
+
+/* Conteúdo do modal */
+.modal-conteudo {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 1200px;  /* Tamanho máximo do modal */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    overflow-y: auto; /* Permite rolagem se o conteúdo for muito longo */
+    max-height: 90%; /* Limita a altura para garantir que o modal não ultrapasse a tela */
+}
+
+.modal-conteudo h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.modal-conteudo table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border-radius: 8px; /* Bordas arredondadas */
+    overflow-x: auto;
+}
+
+.modal-conteudo th, .modal-conteudo td {
+    padding: 10px;
+    text-align: left;
+    font-size: 16px; /* Tamanho da fonte */
+    border: 1px solid #ddd; /* Borda */
+}
+
+.modal-conteudo th {
+    background-color: #f4f6f9;
+    color: #4c5c68;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.modal-conteudo td {
+    background-color: #ffffff;
+    color: #5a5a5a;
+}
+
+.modal-conteudo tr:nth-child(even) td {
+    background-color: #fafbfc;
+}
+
+.modal-conteudo td:hover {
+    background-color: #f1f1f1;
+}
+
+.fechar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+    background-color: transparent;
+    border: none;
+}
+
+.fechar:hover {
+    color: #ff0000;
+}
+
+/* Filtro */
+.btn-filtro {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.filtros {
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filtros div {
+    margin-bottom: 10px;
+}
+
+.filtros label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.filtros input, .filtros select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#btnAplicarFiltro {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #333;
+    border: 1px solid #ff0000;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: color 0.3s, border 0.3s;
+    position: relative;
+}
+
+#btnAplicarFiltro::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ff0000;
+    transition: transform 0.3s ease;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    z-index: -1;
+    border-radius: 5px;
+}
+
+#btnAplicarFiltro:hover {
+    color: #0e005f;
+    border: 1px solid #0e005f;
+}
+
+#btnAplicarFiltro:hover::before {
+    transform: scaleY(1);
+}
+
+
+/* Estilos adicionais para um visual melhor quando o menu é aberto em telas pequenas */
+@media (max-width: 991px) {
+    .navbar-nav {
+        text-align: center;
+        width: 100%;
+    }
+
+    .navbar-nav .nav-item {
+        margin: 10px 0;
+    }
+
+    .logos {
+        display: none; /* Ocultar logo JM para não sobrecarregar o espaço */
+    }
+}
+.modal-body {
+    max-height: 60vh; /* Limita a altura do conteúdo dentro do modal */
+    overflow-y: auto; /* Permite rolar se o conteúdo ultrapassar a altura */
+}
+
+/* Estilo geral para o modal */
+.modal-dialog {
+    max-width: 90%; /* Ajuste o tamanho do modal para ser mais flexível */
+    margin: 0 auto; /* Centraliza o modal na tela */
+}
+
+/* Para telas pequenas */
+@media (max-width: 768px) {
+    /* Reduz o tamanho do modal em dispositivos móveis */
+    .modal-dialog {
+        max-width: 100%; /* Ocupa toda a largura disponível */
+        margin: 10px; /* Adiciona margem para evitar que o modal encoste nas bordas */
+    }
+
+    /* Reduz o padding do modal para não ocupar tanto espaço */
+    .modal-content {
+        padding: 15px;
+    }
+
+    /* Ajusta o tamanho das fontes no título do modal para telas pequenas */
+    .modal-title {
+        font-size: 1.5rem;
+    }
+
+    /* Ajusta os botões e campos dentro do modal para ficarem adequados em telas pequenas */
+    .modal-header, .modal-body, .modal-footer {
+        padding: 10px;
+    }
+
+    /* Ajusta o botão de fechar */
+    .btn-close {
+        font-size: 1.5rem; /* Aumenta o tamanho do ícone de fechar */
+    }
+
+    /* Ajusta a tabela dentro do modal (se necessário) */
+    .modal-body table {
+        font-size: 0.875rem; /* Reduz o tamanho da fonte na tabela */
+        width: 100%; /* Faz a tabela ocupar toda a largura disponível */
+        overflow-x: auto; /* Permite rolagem horizontal se necessário */
+    }
+
+    /* Ajuste para os filtros dentro do modal */
+    #filtros {
+        padding: 10px; /* Diminui o padding para telas pequenas */
+    }
+}
+
+/* Para telas muito pequenas (como dispositivos móveis com resoluções menores) */
+@media (max-width: 480px) {
+    .modal-dialog {
+        max-width: 100%; /* Modal ocupa toda a largura */
+    }
+
+    .modal-content {
+        padding: 10px; /* Menos padding para telas muito pequenas */
+    }
+
+    /* Ajustes nos campos do formulário de filtro */
+    #filtros .form-control,
+    #filtros .form-select {
+        font-size: 0.9rem; /* Ajusta o tamanho das fontes nos inputs */
+    }
+
+    .btn-outline-primary {
+        font-size: 0.85rem; /* Ajusta o tamanho do botão */
+        padding: 8px 12px; /* Ajusta o padding do botão */
+    }
+}

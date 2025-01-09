@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Link do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link para o CSS da tela de login -->
+    <link rel="stylesheet" href="/scriptTelaLogin/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Escolha o Sistema</h2>
+        
+        <!-- Molduras de Imagem (Botões de Redirecionamento) -->
+        <div class="d-flex justify-content-center">
+            <!-- Sistema de Estoque -->
+            <div class="image-frame" onclick="window.location.href='/Estoque/paginaInicial.html';">
+                <img src="https://via.placeholder.com/150" alt="Estoque">
+            </div>
+            <!-- Sistema de Outro Sistema -->
+            <div class="image-frame" onclick="window.location.href='/outro-sistema';">
+                <img src="https://via.placeholder.com/150" alt="Outro Sistema">
+            </div>
+        </div>
+
+        <!-- Botão de Login -->
+        <button class="btn btn-primary btn-block" onclick="window.location.href='/login';">Entrar</button>
+    </div>
+
+    <!-- Scripts do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

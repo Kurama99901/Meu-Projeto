@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 app.use(express.json()); // Para processar JSON
 
 // Inicialização do banco de dados
-const dbPath = path.join(__dirname, 'public', 'Estoque', 'estoque.db'); // Ajuste o caminho se necessário
+const dbPath = path.join(__dirname, 'estoque.db'); // Ajuste o caminho se necessário
 const db = new sqlite3.Database(dbPath, (err) => {
     if (err) {
         console.error('Erro ao conectar ao banco de dados:', err);
@@ -70,7 +70,7 @@ app.get('/', (req, res) => {
         titulo: 'Minha Dashboard',
         mensagem: 'Este é um servidor Node.js com Express renderizando HTML com EJS!'
     };
-    res.render('index', dados);
+    res.render('login', dados);
 });
 
 // Rota POST para salvar os dados no banco de dados
@@ -122,7 +122,7 @@ app.post('/salvar-estoque', (req, res) => {
 });
 
 // Rota GET para obter os dados de estoque do banco de dados
-app.get('/estoque', (req, res) => {
+app.get('/estoque.db', (req, res) => {
     db.all("SELECT * FROM produtos", [], (err, rows) => {
         if (err) {
             console.error('Erro ao carregar dados do banco de dados:', err);
@@ -132,6 +132,7 @@ app.get('/estoque', (req, res) => {
     });
 });
 
-app.listen(port, '0.0.0.0', () => {
-    console.log(`Servidor rodando em http://0.0.0.0:${port} ou pelo IP externo.`);
+
+app.listen(port, 'localhost', () => {
+    console.log(`Servidor rodando em http://localhost:${port}`);
 });

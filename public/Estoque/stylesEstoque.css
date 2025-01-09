@@ -1,0 +1,135 @@
+/* Itens da caixa de sugestões */
+.suggestion-item {
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.suggestion-item:hover {
+    background-color: #f1f1f1;
+}
+
+.suggestion-item.selected {
+    background-color: #e0e0e0; /* Destaque do item selecionado */
+}
+
+.suggestion-item.highlight {
+    background-color: #ddd; /* Altere para a cor de destaque desejada */
+}
+/* Itens da caixa de sugestões */
+.suggestion-item {
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.suggestion-item:hover {
+    background-color: #f1f1f1;
+}
+
+.suggestion-item.selected {
+    background-color: #e0e0e0; /* Destaque do item selecionado */
+}
+
+.suggestion-item.highlight {
+    background-color: #ddd; /* Altere para a cor de destaque desejada */
+}
+/* Estilo para o Container da Tabela */
+.tabela-container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+   
+    margin-top: 20px;
+}
+
+/* Estilo para a Tabela */
+.tabela-estoque {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tabela-estoque th, .tabela-estoque td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabela-estoque th {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.tabela-estoque tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tabela-estoque tr:hover {
+    background-color: #f1f1f1;
+}
+
+.tabela-estoque td {
+    vertical-align: middle;
+}
+
+/* Estilo para Links na Tabela */
+.tabela-estoque td a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.tabela-estoque td a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para Cabeçalho */
+header .d-flex {
+    margin-bottom: 20px;
+}
+
+/* Estilo para Barra de Navegação */
+.navbar-container {
+    margin-bottom: 20px;
+}
+
+.navbar-nav .nav-link {
+    color: #0c1141;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ff0000;
+}
+
+/* Estilo para o Modal */
+.modal-content {
+    padding: 20px;
+}
+
+.modal-header {
+    border-bottom: 1px solid #ddd;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-body .form-label {
+    font-weight: bold;
+}
+
+/* Estilo para o Rodapé */
+footer {
+    background: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    padding: 5px;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-image: linear-gradient(to right, #000080, #8B0000);
+}

@@ -4,7 +4,7 @@ const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
 // Caminho do banco de dados
-const dbPath = path.join(__dirname, '..', 'public', 'Estoque', 'estoque.db');
+const dbPath = path.join(__dirname, '..', 'estoque.db');
 const db = new sqlite3.Database(dbPath, (err) => {
     if (err) {
         console.error('Erro ao abrir o banco de dados:', err);

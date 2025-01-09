@@ -3,97 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <!-- Arquivos CSS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" href="/img/logo2.png" type="image/png">
+    <link rel="stylesheet" href="stylesEstoque.css"> <!-- Link para o arquivo CSS -->
     <title>Estoque</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <header>
-            <div class="header-content">
-                <div class="search-container">
-                    <input type="text" id="search" placeholder="Pesquisar produtos...">
+            <div class="d-flex justify-content-between align-items-center py-3">
+                <!-- Caixa de Pesquisa -->
+                <div class="w-50">
+                    <input type="text" id="search" class="form-control" placeholder="Pesquisar produtos...">
                 </div>
+                <!-- Barra de Navegação -->
                 <div class="navbar-container">
-                    <!-- Barra de navegação -->
-                    <nav class="navbar">
-                        <ul class="navbar-list">
-                            <li class="nav-item" id="navRetirada">
-                                <a class="nav-link" href="#">Retirar Produto</a>
-                            </li>
-                            <li class="nav-item" id="navDevolucao">
-                                <a class="nav-link" href="#">Devolução</a>
-                            </li>
-                            <li class="nav-item" id="navNovoProduto">
-                                <a class="nav-link" href="#">Novo Produto</a>
-                            </li>
-                            <li class="nav-item" id="navExcluirProduto">
-                                <a class="nav-link" href="#">Excluir Produto</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/" class="nav-link">Menu</a>
-                            </li>
-                        </ul>
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <!-- Botão de alternância para dispositivos móveis -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <!-- Links da Navbar -->
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="navRetirada">Retirar Produto</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="navDevolucao">Devolução</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="navNovoProduto">Novo Produto</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="navExcluirProduto">Excluir Produto</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/" class="nav-link">Menu</a>
+                                </li>
+                            </ul>
+                        </div>
                     </nav>
                 </div>
             </div>
         </header>
-        <div id="estoque"></div>
-        <footer>
+
+        <!-- Tabela de Estoque -->
+        <div id="estoque" class="tabela-container">
+            <!-- A tabela será renderizada aqui -->
+        </div>
+
+        <!-- Modal para Lançamento -->
+        <div id="modalLancamento" class="modal fade" tabindex="-1" aria-labelledby="modalLancamentoLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLancamentoLabel">Alterar Estoque</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="operacao" class="form-label">Tipo de Operação:</label>
+                            <select id="operacao" class="form-select">
+                                <option value="retirada">Retirada (Subtrair)</option>
+                                <option value="devolucao">Devolução (Adicionar)</option>
+                                <option value="chegada">Chegada (Adicionar)</option>
+                                <option value="novo">Produto Novo</option>
+                                <option value="exclusao">Excluir Produto</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="produto" class="form-label">Produto:</label>
+                            <input type="text" id="produto" class="form-control" placeholder="Nome do produto">
+                            <div id="suggestions" class="suggestions"></div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="quantidade" class="form-label">Quantidade:</label>
+                            <input type="number" id="quantidade" class="form-control" placeholder="Quantidade (+ ou -)" min="0">
+                        </div>
+
+                        <div id="novoProduto" style="display: none;">
+                            <div class="mb-3">
+                                <label for="codSistema" class="form-label">Código do Sistema:</label>
+                                <input type="text" id="codSistema" class="form-control" placeholder="Código do Sistema">
+                            </div>
+                            <div class="mb-3">
+                                <label for="local" class="form-label">Localização:</label>
+                                <input type="text" id="local" class="form-control" placeholder="Localização">
+                            </div>
+                        </div>
+
+                        <div id="responsavelDiv" class="mb-3" style="display: none;">
+                            <label for="responsavel" class="form-label">Nome do Responsável:</label>
+                            <select id="responsavel" class="form-select">
+                                <option value="">Selecione o responsável</option>
+                                <option value="Edson Soares">Edson Soares</option>
+                                <option value="Cláudio">Cláudio</option>
+                                <option value="Edson Bandeira">Edson Bandeira</option>
+                                <option value="Paulo Hiran">Paulo Hiran</option>
+                                <option value="Robson">Robson</option>
+                                <option value="Felipe">Felipe</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" id="alterarEstoque" class="btn btn-primary">Confirmar Alteração</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="py-3 mt-4 text-center">
             <p>&copy; 2024 Estoque JM Brasília. Todos os direitos reservados.</p>
         </footer>
     </div>
-    
 
-    <!-- Div para mostrar a tabela do estoque -->
-
-
-    <!-- Modal para lançamento de alterações no estoque -->
-    <div id="modalLancamento" class="modal">
-        <div class="modal-conteudo">
-            <span class="fechar">&times;</span>
-            <h2>Alterar Estoque</h2>
-
-            <label for="operacao">Tipo de Operação:</label>
-            <select id="operacao">
-                <option value="retirada">Retirada (Subtrair)</option>
-                <option value="devolucao">Devolução (Adicionar)</option>
-                <option value="chegada">Chegada (Adicionar)</option>
-                <option value="novo">Produto Novo</option>
-                <option value="exclusao">Excluir Produto</option>
-            </select>
-
-            <label for="produto">Produto:</label>
-            <input type="text" id="produto" placeholder="Nome do produto">
-            <div id="suggestions" class="suggestions"></div>
-
-            <label id="quantidadeLabel" for="quantidade">Quantidade:</label>
-            <input type="number" id="quantidade" placeholder="Quantidade (+ ou -)">
-
-            <div id="novoProduto" style="display: none;">
-                <label for="codSistema">Código do Sistema:</label>
-                <input type="text" id="codSistema" placeholder="Código do Sistema">
-                <label for="local">Localização:</label>
-                <input type="text" id="local" placeholder="Localização">
-            </div>
-
-            <div id="responsavelDiv">
-                <label for="responsavel">Nome do Responsável:</label>
-                <select id="responsavel">
-                    <option value="">Selecione o responsável</option>
-                    <option value="Edson Soares">Edson Soares</option>
-                    <option value="Cláudio">Cláudio</option>
-                    <option value="Edson Bandeira">Edson Bandeira</option>
-                    <option value="Paulo Hiran">Paulo Hiran</option>
-                    <option value="Robson">Robson</option>
-                    <option value="Felipe">Felipe</option>
-                </select>
-            </div>
-            
-
-            <button id="alterarEstoque">Confirmar Alteração</button>
-        </div>
-
-<script src="script.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scriptEstoque.js"></script>
 </body>
 </html>
